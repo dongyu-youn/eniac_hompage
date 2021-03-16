@@ -1,0 +1,16 @@
+{% load static%}
+<div class="w-1/4 mb-10 px-2">
+    <a href="{% url "doits:detail" doit.pk %}" class="w-full h-64 bg-cover bg-center mb-2" href="{% url "core:doit" %}"> 
+        <img href="{% url "doit:detail" doit.pk %}" class="rounded-xl" src="{% static 'img/code.png' %}" />
+        <div class="flex justify-between"> 
+        {{doit.title}} 
+        <img class="w-1/6" src="{% static 'img/github.png' %}" />
+        </div>
+
+        <span class="text-sm flex items-center">
+                {{doit.user.grade}} / {{doit.user.username}}
+        </span> 
+</a>
+    </div>
+
+    

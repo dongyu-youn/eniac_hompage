@@ -1,0 +1,38 @@
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+    <title>Document</title> 
+</head>
+<body class="text-gray-700 mt-24">
+    <header class="container max-w-full flex items-center justify-between px-6 h-20 border-b border-gray-400 fixed bg-black inset-0">
+    <div class="flex">
+    <img class="w-20" src="{% static 'img/eniac.png' %}" />
+    <a href = "{% url "core:price" %}" class="mr-6 flex ml-3 content-center items-center font-black text-3xl text-white">Eniac</a>
+
+    <ul class="flex items-center text-sm font-medium align-middle">
+        <ul>
+       <li class="border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a class="py-10" href = "{% url "core:price" %}">칭찬해</a></li>
+       <li class="border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a class="py-10" href = "{% url "core:price" %}">오픈소스</a></li>
+       <li class="border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a class="py-10" href = "{% url "core:doit"  %}">한번써봐</a></li>
+       <li class="border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a class="py-10">로드맵</a></li> 
+    </ul>
+
+    </div>
+        {% include "partials/header.html" %}
+    </header>
+
+    {% block content %}
+    {% endblock %}
+    
+    {% include "partials/footer.html" %}
+
+ 
+    </div>
+</body> 
+</html>
+
