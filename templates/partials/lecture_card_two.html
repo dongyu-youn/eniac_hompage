@@ -1,0 +1,47 @@
+<!-- {% load static%}
+<div class="w-1/4 mb-10 px-2 overflow-hidden">
+    <script src="https://kit.fontawesome.com/53f56d64cb.js" crossorigin="anonymous"></script>
+    <a href="https://github.com/dongyu-youn/eniac_hompage/tree/master" class="w-full h-64 bg-cover bg-center mb-2" "> 
+      
+        <div class="flex justify-between mt-2 "> 
+        {{lecture.title}} 
+   
+        <i class="fab fa-github fa-3x"></i>
+        </div>
+
+        <span class="text-sm flex items-center text-black truncate pr-5">
+                {{lecture.person}} / {{lecture.category}}
+        </span> 
+</a>
+    </div>
+
+     -->
+
+    
+     <div class="lg:m-4 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white       " style="width: 400px; margin: 50px;" ">
+        <!-- Card Image -->
+        <div>
+            <img src = "{{abc.get_photo_url}}" style="height: 400px; width: 400px;" > 
+       </div>
+        <!-- Card Content -->
+        <div class="p-4" >
+          <div style="height:120px;">
+            <h3 class="font-medium text-gray-600 text-lg my-2 uppercase">
+              {{abc.title}}
+            </h3>
+            <p class="text-justify" >
+              {{abc.category}}
+            </p>
+          </div>
+          <div class="mt-5">
+            <a href="" class="hover:bg-gray-700 rounded-full py-2 px-3 font-semibold hover:text-white bg-gray-400 text-gray-100">
+              강의 바로가기
+            </a>
+            {% if abc.user == request.user %}
+                <a href="{% url "lecture:edit" abc.pk %}" class="hover:bg-blue-700 rounded-full py-2 px-3 font-semibold hover:text-white ml-2 bg-blue-400 text-gray-100">
+                    Edit
+                </a>
+                {% endif %}
+          </div>
+        </div>
+      </div>

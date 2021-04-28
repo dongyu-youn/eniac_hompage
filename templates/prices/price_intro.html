@@ -1,0 +1,107 @@
+{% extends 'base.html' %}
+{% load static %} 
+
+{% block content %}
+
+<div class="bg-gray-800 max-w-full h-25vh container  bg-cover bg-center mt-20" style="background-image: url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2852&q=80)"></div>
+     
+<div class="bg-white">
+    <nav class="tabs flex flex-col sm:flex-row justify-center">
+        <button data-target="panel-1" class="tab active text-gray-600 py-4 px-6 block hover:border-blue-500 focus:outline-none text-blue-500 border-b-2 font-medium border-blue-500">
+            에니악은
+        </button><button data-target="panel-2" class="tab ext-gray-600 py-4 px-6 block hover:border-blue-500 focus:outline-none h">
+            1학기
+        </button><button data-target="panel-3" class="tab text-gray-600 py-4 px-6 block hover:border-blue-500 focus:outline-none">
+            2학기
+        </button>
+        <button data-target="panel-3" class="tab text-gray-600 py-4 px-6 block hover:border-blue-500 focus:outline-none">
+            MT/외부활동
+        </button>
+    </nav>
+</div>
+
+<div id="panels">
+    <div class="panel-1 tab-content active py-5">
+        <span class="mr-5">
+            <i class="fal fa-bed mr-1"></i> {{ entry.bedrooms }}
+        </span>
+        <span>
+            <i class="fal fa-bath mr-1"></i> {{ entry.bathrooms }}
+        </span>
+
+        {{ entry.body }}
+    </div>
+    <div class=" bg-gray-200 flex">
+        <!-- Start of component -->
+        <div class="w-full h-full bg-white border-2 border-gray-300 p-5 rounded-md tracking-wide shadow-lg">
+           <div id="header" class="flex"> 
+              <img alt="mountain" class="w-45 rounded-md border-2 border-gray-300" src="{% static 'img/eniac.png' %}" />
+              <div id="body" class="flex flex-col ml-5">
+                 <h4 id="name" class="text-xl font-semibold mb-2">에니악</h4>
+                 <p id="job" class="text-gray-800 mt-2">에니악은 프로젝트 중심 중앙동아리 입니다</p>
+                 <div class="flex mt-5">
+                   
+                   
+                 </div>
+              </div>
+           </div>
+        </div>
+        <!-- End of component -->
+     </div>
+
+    <div class="panel-3 tab-content py-5">
+        other info
+    </div>
+
+    
+</div>
+
+<style>
+    .tab-content {
+  display: none;
+}
+
+.tab-content.active {
+  display: block;
+}
+
+</style>
+
+<script>
+    const tabs = document.querySelectorAll(".tabs");
+const tab = document.querySelectorAll(".tab");
+const panel = document.querySelectorAll(".tab-content");
+
+function onTabClick(event) {
+
+  // deactivate existing active tabs and panel
+
+  for (let i = 0; i < tab.length; i++) {
+    tab[i].classList.remove("active");
+  }
+
+  for (let i = 0; i < panel.length; i++) {
+    panel[i].classList.remove("active");
+  }
+
+
+  // activate new tabs and panel
+  event.target.classList.add('active');
+  let classString = event.target.getAttribute('data-target');
+  console.log(classString);
+  document.getElementById('panels').getElementsByClassName(classString)[0].classList.add("active");
+}
+
+for (let i = 0; i < tab.length; i++) {
+  tab[i].addEventListener('click', onTabClick, false);
+}
+</script>
+
+
+
+           
+        </div>
+
+{% endblock content %}
+
+

@@ -1,34 +1,293 @@
+
 {% extends 'base.html' %}
-
-
+{% load static %}
 {% block content %}
-    <div class = "container mx-auto">
-        <div class="bg-gray-800 w-full h-50vh mt-10 container mx-auto rounded-xl bg-cover bg-center" style="background-image: url(https://images.unsplash.com/photo-1498050108023-c5249f4df085?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=2852&q=80)">
+      <div class = "container mx-auto" style="margin-top: 100px; ">
+
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <style>
+        * {box-sizing: border-box}
+        body {font-family: Verdana, sans-serif; margin:0}
+        .mySlides {display: none}
+        img {
+        vertical-align: middle;
+        height: 500px;
+        width: max-content;
+        
+        }
+        
+        /* Slideshow container */
+        .slideshow-container {
+         
+         
+          margin: auto;
+        }
+        
+        /* Next & previous buttons */
+        .prev, .next {
+          cursor: pointer;
+          
+          top: 50%;
+          width: auto;
+          padding: 16px;
+          margin-top: -22px;
+          color: white;
+          font-weight: bold;
+          font-size: 18px;
+          transition: 0.6s ease;
+          border-radius: 0 3px 3px 0;
+          user-select: none;
+        }
+        
+        /* Position the "next button" to the right */
+        .next {
+          right: 0;
+          border-radius: 3px 0 0 3px;
+        }
+        
+        /* On hover, add a black background color with a little bit see-through */
+        .prev:hover, .next:hover {
+          background-color: rgba(0,0,0,0.8);
+        }
+        
+        /* Caption text */
+        .text {
+          color: #f2f2f2;
+          font-size: 15px;
+          padding: 8px 12px;
+          position: absolute;
+          bottom: 8px;
+          width: 100%;
+          text-align: center;
+        }
+        
+        /* Number text (1/3 etc) */
+        .numbertext {
+          color: #f2f2f2;
+          font-size: 12px;
+          padding: 8px 12px;
+          position: absolute;
+          top: 0;
+        }
+        
+        /* The dots/bullets/indicators */
+        .dot {
+          cursor: pointer;
+          height: 15px;
+          width: 15px;
+          margin: 0 2px;
+          background-color: #bbb;
+          border-radius: 50%;
+          display: inline-block;
+          transition: background-color 0.6s ease;
+        }
+        
+        .active, .dot:hover {
+          background-color: #717171;
+        }
+        
+        /* Fading animation */
+        .fade {
+          -webkit-animation-name: fade;
+          -webkit-animation-duration: 1.5s;
+          animation-name: fade;
+          animation-duration: 1.5s;
+        }
+        
+        @-webkit-keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        @keyframes fade {
+          from {opacity: .4} 
+          to {opacity: 1}
+        }
+        
+        /* On smaller screens, decrease text size */
+        @media only screen and (max-width: 500px) {
+          .prev, .next,.text {font-size: 11px}
+        }
+        </style>
+        </head>
+        <body>
+        
+        <div class="slideshow-container">
+        
+          <div class="mySlides fade" style="background-image: url('{% static 'img/coding.png' %}');height: 500px;background-size:cover; background-position: center center;border-radius:15px;">
+            <!-- <img src="{% static 'img/coding/png' %}" class="rounded-xl"> -->
+          </div>
+          
+          <div class="mySlides fade" style="background-image: url('{% static 'img/abc.png' %}');height: 500px;background-size:cover; background-position: center center;border-radius:15px;">
+            <!-- <img src="{% static 'img/abc.png' %}" class="rounded-xl" > -->
+          </div>
+          
+          <div class="mySlides fade" style="background-image: url('{% static 'img/toto.png' %}');height: 500px;background-size:cover; background-position: center center;border-radius:15px;">
+            <!-- <img src="{% static 'img/toto.png' %}"  class="rounded-xl"> -->
+          </div>
+        
+        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+        <a class="next" onclick="plusSlides(1)">&#10095;</a>
+        
         </div>
-            {% for price in object_list  %}
-        <h2>
-            <a href="{% url "price:detail" price.pk %}"> 
-            {{price.title}} / ${{price.person}}</h2>
-            </a>  
-        {% endfor %}
+        <br>
+        
+        <div style="text-align:center " class="-mt-10">
+          <span class="dot" onclick="currentSlide(1)"></span> 
+          <span class="dot" onclick="currentSlide(2)"></span> 
+          <span class="dot" onclick="currentSlide(3)"></span> 
+        </div>
+        <script src="https://kit.fontawesome.com/53f56d64cb.js" crossorigin="anonymous"></script>
+        <script>
+            var slideIndex = 0;
+            showSlides();
+            
+            function showSlides() {
+              var i;
+              var slides = document.getElementsByClassName("mySlides");
+              var dots = document.getElementsByClassName("dot");
+              for (i = 0; i < slides.length; i++) {
+                slides[i].style.display = "none";  
+              }
+              slideIndex++;
+              if (slideIndex > slides.length) {slideIndex = 1}    
+              for (i = 0; i < dots.length; i++) {
+                dots[i].className = dots[i].className.replace(" active", "");
+              }
+              slides[slideIndex-1].style.display = "block";  
+              dots[slideIndex-1].className += " active";
+              setTimeout(showSlides, 4000); // Change image every 2 seconds
+            }
+            </script>
+        
+      
+                
+
+                                       
+
+  
+       
+               
+  
+
+            
+        <div class="border-gray-900 ">
+                <h3 class="text-2xl font-bold mt-7">
+                    축하합니다!
+                    <span class="uppercase ml-3 text-gray-400 text-sm font-normal  md:hover:underline ">전체보기</span>
+                    <p class="border border-b border-black ml-72 "></p>
+                    <h3 class="">상받은 에니악 활동원입니다 축하해주세요! </h3> 
+                   
+                </h3>
+                
+                <div class="flex mb-10  space-x-10 " style= "margin-top: 20px;" >
+                    <!-- <div class="absolute w-20 h-20 rounded-full bg-white text-grey-dark text-center  pin-r mt-14 shadow-md   " style="margin-left: 1400px; ">
+                        
+                        <i class="fas fa-chevron-right mt-6 fa-2x"></i>
+                    </div> -->
+                    {% for price in prices %}
+                    {% include 'prices/price_card.html' with i=price %}
+                {% endfor %}
+                   
+                </div>
+                <div style="text-align:center " class="mt-10">
+                    <span class="dot" onclick="currentSlide(1)"></span> 
+                    <span class="dot" onclick="currentSlide(2)"></span> 
+                    <span class="dot" onclick="currentSlide(3)"></span> 
+                  </div>
+        </div>
+        
+            
+
+
+
+
+       
+            <h3 class=" text-2xl font-bold mt-20">
+                모집중인 스터디그룹!
+                <span class="uppercase ml-3 text-gray-400 text-sm font-normal  md:hover:underline ">전체보기
+                <p class="border border-b border-black ml-72 mb-10"></p>
+            </span>
+                 
+            </h3>
+           
+            <div class="flex mb-12  ml-10 ">
+                <!-- <div class="absolute w-20 h-20 rounded-full bg-white text-grey-dark text-center  pin-r mt-14 shadow-md" style="margin-left: 1400px; ">
+                    <i class="fa fa-chevron-right mt-6 fa-2x" aria-hidden="true"></i>
+                </div> -->
+                {% for study in studys  %}
+                {% include 'studies/studies_card.html' with i=price %}
+                {% endfor %}
+               
+            </div>
+
+            <div style="text-align:center " class="mt-10">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+              </div>
+            
+
+            <h3 class=" text-2xl font-bold mt-20">
+                최신개발작품
+                <span class="uppercase ml-3 text-gray-400 text-sm font-normal  md:hover:underline ">전체보기
+                <p class="border border-b border-black ml-56 "></p>
+            </span>
+            </h3>
+           
+            <div class="flex mb-4 mt-8 ml-10 ">
+                <!-- <div class="absolute w-20 h-20 rounded-full bg-white text-grey-dark text-center  pin-r mt-14 shadow-md" style="margin-left: 1400px; ">
+                    <i class="fa fa-chevron-right mt-6 fa-2x" aria-hidden="true"></i>
+                </div> -->
+                {% for abc in doits  %}
+                {% include 'doits/doit_card.html' with i=price %}
+                {% endfor %}
+               
+            </div>
+
+            <div style="text-align:center " class="mt-10">
+                <span class="dot" onclick="currentSlide(1)"></span> 
+                <span class="dot" onclick="currentSlide(2)"></span> 
+                <span class="dot" onclick="currentSlide(3)"></span> 
+              </div>
+
+
+       
+
+        
+        
+        
+          
+               
+            </div> 
+
+
+   
+       
+
     
-        <h5>
-        {% if page_obj.has_previous %}
-            <a href="?page={{page_obj.previous_pre_number}}">Previous</a>
-        {% endif %}
+
     
-        Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
+
+
     
-        {% if page_obj.has_next %}
-            <a href="?page={{page_obj.next_page_number}}">Next</a>
-        {% endif %}
-        </h5>
-    </div>
+        
 
     
 {% endblock content %}
-    
 
 
     
-    
+
+<!-- dudpslaRp tkfkaqnfmtemtdl gkaus dksdhsek qhdlwl sdksgms duddml wjswpdlrl Eoad akdamdmf dkfdidkgksek
+rmrjf dkfuas dkvmsakdamdfm dlswjdgksms qnsemfdl rm dudcpsladml tkfkddmf qkemdtn ldek
+wkrldm dkvmadmf dmlxkrgkfnt ldTdjigksek akdmadmfh qnffjdiksek dkvmsakdmadmfh djsjegustlfdml ansprk dlTmduas
+dkvmek godqhrgksrjf ahtgqhk rm anspwsms dkvmek gorufqhtgkslRks rrfjwdlswjdgksmsrp sjan efuqek
+enfudnadp qjfqjfEjsms dldkrl sorkd l jgrp kfntdjqtrnsk rm enfdnadmfsRdkse
+ wkrlfmf tlstjddkvamrhk enfudnadmf dlstjrlgrkh ghkrtfgl dkfrh akxrudigksek dudcpsla tkfkddl snsdmf xhdgotj skdhse
+rrf qhrh emerh dlswjwdguastj dudcpsladml whswofmf dksmsrjek rmrjf dlswjdgkrh smRlsaksxm Ehrrkxdms vjtpsxldlwlfh
+akxruTdj r rjsms tkfkfdmf dkssmakszma anaw[pffk qhfE dkvmrp smRLrh rmrjf] dmlxkrgksmsi guseodsldl wkrrk 
+grofgkwl ahtgks rmstlarjrrwjddmf dmlskxrkgua djfaksk godqhrgkRdy wkrlrk gkffurh doTmrl OEnaldk 
+vusdksgposlsms smlradl kdlskf rehlfeJ ehlrh dkswjdehlrh hgkrtls dlTsm tkdox akxruTsmsep duwjsgl tmsladmf xhdgotj
+rustjddmf goTrh dudcpslarhk qhstjd qhtjd qhsfodptj skdhsgladlek rlehrry dddj dudcp tjdqn tjdfud gla 
+qhstjddml gla r mgladmf dudcpsladlfkrh gksmsrke qhstjdqhsfofh qhsmsrjek sotmxls  -->

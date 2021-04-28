@@ -1,0 +1,198 @@
+{% extends "base.html" %}
+{% block content %}
+<div style="margin-top:585px;" class="w-full fixed flex justify-end">
+    
+    <a href="{% url "reviews:create" opensource.pk %}" style="width:150px; line-height:150px; font-size:20px; height:150px; margin-right:105px" class="text-center hover:bg-blue-50 border-gray-50 border shadow-md text-gray-700 rounded-full">
+        Answer
+    </a>
+</div>
+
+<div style="width:1000px;" class="mx-auto mt-36 flex justify-center">
+    <div class=" flex">
+        <div>
+            <div style="width:312px; height:510px;" class="mt-2 w-full ml-5 rounded-lg border-3 border-gray-300 border">
+                <div class="w-full h-8/12 flex justify-center">
+                    <div class="font-semibold  border-b h-full w-10/12">
+                        <div class="mt-6 flex justify-center">
+                            <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                                {{ study.Leader |slice:"0:1" }}
+                            </div>
+                        </div>
+                        <div class="mt-5 flex">
+                            <div class="text-3xl">
+                                ✪
+                            </div>
+                            <div class="ml-2 mt-2">
+                                팀장
+                            </div>
+                        </div>
+                        <div class="mt-5 mb-12 flex">
+                            <div class="text-3xl">
+                                ✽
+                            </div>
+                            <div class="ml-2 mt-2">
+                                애니악 {{ user.entered_eniac }} 기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-4/12 flex justify-center">
+                    <div class="font-semibold  border-b h-full w-10/12">
+                        <div class="mt-5 flex">
+                            <div class="text-3xl">
+                                ✪
+                            </div>
+                            <div class="ml-2 mt-2">
+                                {{user.grade}}
+                            </div>
+                        </div>
+                        <div class="mt-5 mb-12 flex">
+                            <div class="text-3xl">
+                                ✽
+                            </div>
+                            <div class="ml-2 mt-2">
+                                {{user.major}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if opensource.OpenSource_host == request.user %}
+                <div class="flex justify-center ml-5 ">
+                    <a href="{% url "opensource:update" opensource.pk %}">
+                        <button style="width:312px" class="border mt-2 h-10 font-light text-blue-500 border-blue-500 bg-white rounded-lg ">
+                            Edit
+                        </button>
+                    <a>
+                </div>
+            {% endif %}
+            <div class="flex justify-center ml-5 ">
+                <a>
+                </a>
+            </div>
+        </div>
+        <div class="flex justify-center ml-5 ">
+        </div>
+    </div>
+    <div style="width:900px; " class="ml-12">
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 text-gray-900">
+            👿 오류 내용
+        </div>
+        <div style="word-break:break-all;" class="mt-5 py-3">
+            {{opensource.error}}
+        </div>
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 mt-4 text-gray-900">
+            ✎ 문제 상황 설명
+        </div>
+        <div style="word-break:break-all;" class="mt-5 py-3">
+           {{opensource.explain_situation}}
+        </div>
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 mt-10 text-gray-900">
+            ⌨ 문제 코드
+        </div>
+        <div style="word-break:break-all;" class="mt-5 px-3 w-full border rounded-xl bg-purple-100 py-5">
+            {{opensource.code}}
+        </div>
+        <div class="mt-5 border-b py-5">
+        </div>
+    </div>
+    
+</div>
+
+{% for review in reviews %}
+<div style="width:1000px;" class="mx-auto mt-36 flex justify-center">
+    <div class=" flex">
+        <div>
+            <div style="width:312px; height:510px;" class="mt-2 w-full ml-5 rounded-lg border-3 border-gray-300 border">
+                <div class="w-full h-8/12 flex justify-center">
+                    <div class="font-semibold  border-b h-full w-10/12">
+                        <div class="mt-6 flex justify-center">
+                            <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                                {{ study.Leader |slice:"0:1" }}
+                            </div>
+                        </div>
+                        <div class="mt-5 flex">
+                            <div class="text-3xl">
+                                ✪
+                            </div>
+                            <div class="ml-2 mt-2">
+                                팀장
+                            </div>
+                        </div>
+                        <div class="mt-5 mb-12 flex">
+                            <div class="text-3xl">
+                                ✽
+                            </div>
+                            <div class="ml-2 mt-2">
+                                애니악 {{ review.OpenSource_host.pk }} 기
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-full h-4/12 flex justify-center">
+                    <div class="font-semibold  border-b h-full w-10/12">
+                        <div class="mt-5 flex">
+                            <div class="text-3xl">
+                                ✪
+                            </div>
+                            <div class="ml-2 mt-2">
+                                {{review_user.grade}}
+                            </div>
+                        </div>
+                        <div class="mt-5 mb-12 flex">
+                            <div class="text-3xl">
+                                ✽
+                            </div>
+                            <div class="ml-2 mt-2">
+                                {{review_user.major}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% if review.OpenSource_host == request.user %}
+                <div class="flex justify-center ml-5 ">
+                    <a href="{% url "reviews:edit" review.pk %}">
+                        <button style="width:312px" class="border mt-2 h-10 font-light text-blue-500 border-blue-500 bg-white rounded-lg ">
+                            Edit
+                        </button>
+                    <a>
+                </div>
+            {% endif %}
+            <div class="flex justify-center ml-5 ">
+                <a>
+                    
+                </a>
+            </div>
+        </div>
+        <div class="flex justify-center ml-5 ">
+        </div>
+    </div>
+    <div style="width:900px; " class="ml-12">
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 text-gray-900">
+            👿 오류 내용
+        </div>
+        <div style="word-break:break-all;" class="mt-5 py-3">
+            {{review.error}}
+        </div>
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 mt-4 text-gray-900">
+            ✎ 문제 상황 설명
+        </div>
+        <div style="word-break:break-all;" class="mt-5 py-3">
+           {{review.explain_situation}}
+
+        </div>
+        <div style="font-size: 20px; font-weight:600;" class="ml-1 mt-10 text-gray-900">
+            ⌨ 문제 코드
+        </div>
+        <div style="word-break:break-all;" class="mt-5 px-3 w-full border rounded-xl bg-blue-100 py-5">
+            {{review.code}}
+        </div>
+        <div class="mt-5 border-b py-5">
+        </div>
+    </div>
+    
+</div>
+{% endfor %}
+
+{% endblock content %}

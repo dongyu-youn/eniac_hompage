@@ -25,7 +25,7 @@ SECRET_KEY = 'o*f+#d+4xv=tr@^j9a+)#mcyx@wh#6(@ov&d-%0j&ovanje*^+'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["*"]
 
 
 # Application definition
@@ -41,11 +41,21 @@ DJANGO_APPS = [
 
 PROJECT_APPS = [
     "users.apps.UsersConfig",
+    "reviews.apps.ReviewsConfig",
     "prices.apps.PricesConfig",
     "core.apps.CoreConfig",
     "doits.apps.DoitsConfig",
+    "lectures.apps.LecturesConfig",
+    "open_source.apps.OpenSourceConfig",
+    "studies.apps.StudiesConfig",
+    "applies.apps.AppliesConfig",
+    "notices.apps.NoticesConfig",
+    
 ]
-THIRD_PARTY_APPS = ["django_seed",]
+THIRD_PARTY_APPS = [
+    "django_seed",
+    "debug_toolbar",
+]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS + THIRD_PARTY_APPS
 
@@ -57,6 +67,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # debug-toolbar middleware
+    'debug_toolbar.middleware.DebugToolbarMiddleware',
 ]
 
 ROOT_URLCONF = 'config.urls'
@@ -131,5 +143,13 @@ STATIC_URL = '/static/'
 
 STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
+
+
 AUTH_USER_MODEL = "users.User"
+
+MEDIA_URL = '/media/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+# debug-toolbar
 

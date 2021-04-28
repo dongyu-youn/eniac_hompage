@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+</style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+</style>
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bellefair&display=swap');
+</style>
+
+
+<div class="flex justify-center">
+    <div style="color:black; font-family: 'Bellefair', serif; font-size:60px; text-align:center; width:300px; height:100px;" class="font-bold mt-32">
+        코드 질문
+        <!-- <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
+            <div style="width:65px;" class="">
+                <div style="margin-left:8px; margin-bottom:8px; width:68.5px;" class="mb-1 border border-blue-600  rounded-full absolute">
+                    F
+                </div>
+            </div>
+            <div style="letter-spacing: 7px;">
+                IXING
+            </div>
+        </div>
+        <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
+            <div style="width:65px;" class="">
+                <div style="margin-left:8px; margin-bottom:8px; width:68px;" class="mb-1 border border-purple-400  rounded-full fabsolute">
+                    C
+                </div>
+            </div>
+            <div style="letter-spacing: 7px;">
+                ODE
+            </div>
+        </div>
+        <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
+            <div style="width:65px;" class="">
+                <div style="margin-left:8px; margin-bottom:8px; width:68.5px;" class="mb-1 border border-pink-400  rounded-full absoluted">
+                    E
+                </div>
+            </div>
+            <div style="letter-spacing: 7px;"class=>
+                RROR,,
+            </div>
+        </div> -->
+    </div>
+</div>
+<div style="font-size:30px; font-family: 'Bellefair', serif;" class="text-gray-500 flex justify-center">
+    코드를 질문해주세요!
+</div>
+
+<div stlye="width:2000px;" class="flex justify-center">
+    <div class="flex flex-wrap w-11/12 justify-center">
+        {% for OpenSource in opensources %}
+            <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl">
+            <a href="{% url "opensource:detail" OpenSource.pk %}">
+                <div style="overflow:hidden; word-wrap:break-word;" class="{% if OpenSource.error_signal %}bg-pink-100 {% endif %}py-7 px-8 width-full h-3/4 {% if OpenSource.error_signal %}bg-pink-50{% endif %} border border-yellow-200">
+                    {{OpenSource.explain_situation}}
+                </div>
+                <div style="font-size:40px; font-family: 'Nanum Pen Script', cursive;" class="{% if OpenSource.error_signal %}text-pink-400 bg-pink-100{% endif %} font-bold text-black h-1/4">
+                    <div>
+                        {{OpenSource.OpenSource_host.name}}
+                    </div>
+                    <div class="mt-1 flex justify-end mr-3" >
+                        {% for Lang in OpenSource.code_Language.all %}
+                            <span style="font-size:20px;" class="border py-1 px-2 text-white bg-purple-400 rounded-xl">
+                                {{Lang}}
+                            </span>
+                        {% endfor %}
+                    </div>
+                </div>
+            </a>
+            </div>
+        
+        {% endfor %}
+        </div>
+    </div>
+</div>
+
+
+    {% endblock content%}

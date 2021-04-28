@@ -15,11 +15,27 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf.urls.static import static
+from django.conf import settings
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("", include("core.urls", namespace="core")),
     path("", include("prices.urls", namespace="price")),
     path("", include("doits.urls", namespace="doit")),
-   
+    path("", include("users.urls", namespace="users")),
+    path("", include("lectures.urls", namespace="lecture")),
+    path("", include("open_source.urls", namespace="opensource")),    
+    path("", include("studies.urls", namespace="studies")),
+    path("", include("reviews.urls", namespace="reviews")),
+    path("", include("applies.urls", namespace="applies")),
+    path("", include("notices.urls", namespace="notices")),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
+if settings.DEBUG:
+    import debug_toolbar
+    urlpatterns = [
+        path('__debug__/', include(debug_toolbar.urls)),
+    ] + urlpatterns
