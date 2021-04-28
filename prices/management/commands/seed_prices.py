@@ -7,7 +7,7 @@ class Command(BaseCommand):
     help = "This command good"
 
     def add_arguments(self, parser):
-        parser.add_argument("--number", default=1, type=int, help="How many seed?")
+        parser.add_argument"--number", default=1, type=int, help="How many seed?")
 
     def handle(self, *args, **options):
 

@@ -1,5 +1,9 @@
 from django.db import models
 from core import models as core_models
+from django.shortcuts import render
+from PIL import Image 
+
+
 # Create your models here.
 
 """
@@ -22,14 +26,33 @@ class Price(core_models.TimeStampedModel):
         (CATE_T, "교외대회"),
     )
 
-    title = models.CharField(max_length=120) 
+
+
+    title = models.CharField(max_length=120)    
     year = models.DateTimeField()
-    cover_image = models.ImageField()
+    image = models.ImageField()
     category = models.CharField(
         max_length=20, choices=CATE_CHOCIES)
     person = models.CharField(default="", max_length=20)
 
+    def save(self):
+        super().save()  # 이미지저장
+
+        img = Image.open(self.image.path) # 이미지 오픈
+
+        if img.height > 280 or img.width > 280:
+            new_img = (280, 280)
+            img.thumbnail(new_img)
+            img.save(self.image.path)  # 같은경로로 이미지 저장
+
     def __str__(self):
-      return self.title  
+      return self.title
+
+   
+  
+
+#업데이트
+
+
 
 

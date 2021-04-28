@@ -1,0 +1,42 @@
+<!-- <h2>
+     <a href="{% url "price:detail" price.pk %}"> 
+        <img class="bg-cover bg-center  rounded-xl px-1 mr-3 w-full h-32vh mt-1 container mx-auto  " src = "{{price.image.url}}"> 
+        <div class="bg-cover bg-center mb-10
+        px-3 mr-8">
+            <div>
+                <span class="text-xs align-middle overflow-hidden">
+                {{price.title}}
+            </span>
+            </div>
+            <span>
+                {{price.person}}
+            </span>
+        </div>
+    
+    </a>   
+
+    </h2> -->
+
+
+    <div class="flex-1 mr-1" >
+        <div>
+            <img src = "" style="background-image: url({{price.image.url}}); height: 300px; width: 350px; background-size:cover; background-position: center; center;border-radius:15px;" class="rounded-xl"> 
+        </div>
+        <div class="mt-4">
+            <span class="text-xl font-bold">
+                {{price.person}} 
+             </span> <br>
+            <span class="mt-2 font-hairline text-lg text-grey-darker">
+                {{price.title}}
+              
+               
+            </span>
+            <p class="mt-1 font-hairline text-xs text-grey-darker">
+            </p>
+            <p class="inline block p-1 text-grey-darker bg-grey-lighter font-hairline text-2xs">
+                {{price.year}}
+            </p>
+        </div>
+    </div>
+
+    

@@ -1,0 +1,146 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div class="md-10">
+    <div class="h-full mt-28 container text-left lg:w-5/12 md:w-1/2 xl:w-7/12 mx-auto my-10 flex flex-col items-center p-6 border-gray-400">
+        <div class="h-full w-full flex  ">
+            <div>
+                <div style="width:312px; height:510px;" class="mt-2 w-full ml-5 rounded-lg border-3 border-gray-300 border">
+                    <div class="w-full h-8/12 flex justify-center">
+                        <div class="font-semibold  border-b h-full w-10/12">
+                            <div class="mt-6 flex justify-center">
+                                <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                                    {{ study.Leader |slice:"0:1" }}
+                                </div>
+                            </div>
+                            <div class="mt-5 flex">
+                                <div class="text-3xl">
+                                    ✪
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    팀장
+                                </div>
+                            </div>
+                            <div class="mt-5 mb-12 flex">
+                                <div class="text-3xl">
+                                    ✽
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    애니악 {{ host_inf.entered_eniac }} 기
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="w-full h-4/12 flex justify-center">
+                        <div class="font-semibold  border-b h-full w-10/12">
+                            <div class="mt-5 flex">
+                                <div class="text-3xl">
+                                    ✪
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    {{host_inf.grade}}
+                                </div>
+                            </div>
+                            <div class="mt-5 mb-12 flex">
+                                <div class="text-3xl">
+                                    ✽
+                                </div>
+                                <div class="ml-2 mt-2">
+                                    {{host_inf.major}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {% if study.Room_Host == user %}
+                    <div class="flex justify-center ml-5 ">
+                        <a href="{% url "studies:update" study.pk %}">
+                            <button style="width:312px" class="border mt-2 h-10 font-light text-blue-500 border-blue-500 bg-white rounded-lg ">
+                                Edit
+                            </button>
+                        <a>
+                    </div>
+                {% endif %}
+                <div class="flex justify-center ml-5 ">
+                    <a href="{% url "applies:create" study.pk %}">
+                        <button style="width:312px" class="mt-2 h-10 font-light border-red-200 shadow border-2 rounded-md text-white bg-red-600 rounded-lg ">
+                            Apply
+                        </button>
+                    </a>
+                </div>
+            </div>
+            
+            <div style="width:610px" class="border-section ml-16">
+                <div class="ml-2">
+                    <div style="font-size: 31px; font-weight:600;" class="ml-1 text-gray-900">
+                        {{study.Title_Intro}}
+                    </div>
+                    <div style="font-size: 14px;">
+                        마감기한 : {{study.Deadline_Date}}
+                    </div>
+                    <div style="font-size: 20px; font-weight:600;" class="mt-10 text-gray-900 ">
+                        소개
+                    </div>
+                    <div class="mt-5">
+                        {{study.Introduce}}
+                    </div>
+
+                    <div style="font-size: 20px; font-weight:600;" class="mt-10 text-gray-900 ">
+                        스터디 주기
+                    </div>
+                    <div class="mt-5">
+                        {{study.Study_Cycle}}
+                    </div>
+                    
+                    <div class="mt-5 flex">
+                        <div>
+                            ✎ 언어:&nbsp
+                        </div>
+                        {% for a in study.Programing_Language.all %}
+                            <div class=>{{a}},&nbsp</div>
+                        {% endfor %}
+                    </div>
+                        <div class="mt-5 border-t">
+                    </div>
+                    <div style="font-size: 20px; font-weight:600;" class="mt-5 text-gray-900 ">
+                        {{study.Leader}}님의 팀원
+                    </div>
+                    <div style="justify-content:space-between" class="w-full flex flex-wrap">
+                        {% for room_member in room_members %}
+                        <div style="width:48%;" class="mt-5 border text-center w-full border-section rounded-lg">
+                            <div class="flex justify-center">
+                                <div class="font-semibold border-section  h-full w-10/12">
+                                    <div class="mt-6 flex justify-center">
+                                        <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                                            {{room_member.username |slice:"0:1" }}
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 flex">
+                                        <div class="text-3xl">
+                                            ✪
+                                        </div>
+                                        <div class="ml-2 mt-2">
+                                            자바학습 스터디 팀원
+                                        </div>
+                                    </div>
+                                    <div class="mt-5 mb-12 flex">
+                                        <div class="text-3xl">
+                                            ✽
+                                        </div>
+                                        <div class="ml-2 mt-2">
+                                            애니악 {{room_member.entered_eniac}} 기
+                                        </div>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                        {% endfor %}
+                        
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -1,5 +1,6 @@
 from django.db import models
 from core import models as core_models
+from django.urls import reverse
 # Create your models here.
 
 """
@@ -14,26 +15,108 @@ Here are the models you have to create:
 
 class Doit(core_models.TimeStampedModel):
 
-    GRADE_F = "1학년"
-    GRADE_S = "2학년"
-    GRADE_T = "3학년"
-    
-    GRADE_CHOICES = (
-        (GRADE_F, "1학년"),
-        (GRADE_S, "2학년"),
-        (GRADE_T, "3학년"),
-    )
+  Bloop = "Bloop"
+  BrainF = "BrainF"
+  QBasic = "QBasic"
+  Erlang = "Erlang"
+  Next_js = "Next.js"
+  TypeScript = "TypeScript"
+  Dart = "Dart"
+  Crystal = "Crystal"
+  Lua = "Lua"
+  Deno = "Deno"
+  Clojure = "Clojure"
+  Haskell = "Haskell"
+  F_ = "F#"
+  React = "React"
+  Kotlin = "Kotlin"
+  Rust = "Rust"
+  Node_js = "Node.js"
+  Objective_c = "Objective-C"
+  Assembly_language = "Assembly language"
+  Ruby = "Ruby"
+  Swift = "Swift"
+  Go = "Go"
+  SQL = "SQL"
+  R = "R"
+  PHP = "PHP"
+  JavaScript = "JavaScript"
+  C_ = "C#"
+  C__ = "C++"
+  Java = "Java"
+  Python = "Python"
+  C = "C"
 
-    title = models.CharField(max_length=120) 
-    cover_image = models.ImageField()   
-    category = models.CharField(    
-       default="", max_length=20)
-    fav_pro_genre = models.CharField(choices=GRADE_CHOICES, max_length=20, blank=True, null=True)
-    user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=True, blank=True)
+  Web = "Web"
+  Ai = "Ai"
+  Game = "Game"
+  App = "App"
+  Etc = "Etc"
 
-    def __str__(self):
-      return self.title  
+  CATEGORY_CHOICES = (
+      (Web, "Web"),
+      (Ai, "Ai"),
+      (Game, "Game"),
+      (App, "app"),
+      (Etc, "Etc")
+  )
 
-    def first_photo(self):
-        photo = self.photos.all()[:1]
-        return photo.file.url
+  LANGUAGE_CHOICES = (
+      (Bloop, "Bloop"),
+      (BrainF, "BrainF"),
+      (QBasic, "QBasic"),
+      (Erlang, "Erlang"),
+      (Next_js, "Next.js"),
+      (TypeScript, "TypeScript"),
+      (Dart, "Dart"),
+      (Crystal, "Crystal"),
+      (Lua, "Lua"),
+      (Deno, "Deno"),
+      (Clojure, "Clojure"),
+      (Haskell, "Haskell"),
+      (F_, "F#"),
+      (React, "React"),
+      (Kotlin, "Kotlin"),
+      (Rust, "Rust"),
+      (Node_js, "Node.js"),
+      (Objective_c, "Objective-C"),
+      (Assembly_language, "Assembly_Language"),
+      (Ruby, "Ruby"),
+      (Swift, "Swift"),
+      (Go, "Go"),
+      (SQL, "SQL"),
+      (R, "R"),
+      (PHP, "PHP"),
+      (JavaScript, "JavaScript"),
+      (C_, "C#"),
+      (C__, "C++"),
+      (Java, "Java"),
+      (Python, "Python"),
+      (C, "C"),
+  )
+
+
+  title = models.CharField(max_length=120) 
+  image = models.ImageField()   
+  category = models.CharField(choices=CATEGORY_CHOICES, max_length=20)
+  개발자 = models.CharField(max_length=10)
+  explain = models.TextField(max_length=1000)
+  Programing_Language = models.CharField(choices=LANGUAGE_CHOICES, max_length=20, blank=True, null=True)
+  user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=True, blank=True)
+  link = models.URLField(max_length=70)
+
+  def __str__(self):
+    return self.title  
+  
+  def get_absolute_url(self):
+      return reverse('core:doit')
+  
+   
+  @property
+  def get_photo_url(self):
+      if self.image:
+          return self.image.url
+      else:
+          return "/static/images/user.jpg"
+
+#학년, 제목, 카테고리, 장르, 유저, 깃허브주소 유저

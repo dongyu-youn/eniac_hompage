@@ -6,13 +6,17 @@ from django.contrib.auth.admin import UserAdmin
 @admin.register(User)
 class UserAdmin(UserAdmin):
 
-   fieldsets = UserAdmin.fieldsets + ((
+   fieldsets = ((
         "Custom Profile",
         {
             "fields": (
-                "major",
+                "email",
                 "fav_pro_genre",
+                "nickname",
+                "major",
                 "grade",
+                "entered_eniac",
+                
             )
         },
     ), )

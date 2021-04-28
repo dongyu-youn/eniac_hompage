@@ -1,0 +1,167 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class=" container border mx-auto bg-gray-800 w-7/12 h-25vh mt-20 bg-center bg-cover" style="border-radius:15px; background-image:url(https://blog.kakaocdn.net/dn/bgwWMX/btqFvfdvgBL/OdGT0yAhdQlYcm7mWLcuT1/img.jpg)">
+    </div>
+    <div class=" flex justify-center">
+        <div class="w-7/12 mt-7">
+            <div class="flex justify-end">
+                <input type="search" class=" w-96 font-light border-gray-300 rounded-md mr-3 px-7 py-2 border mb-2" placeholder="찾으시는 스터디를 검색해보세요!">
+                </input>
+            </div>
+            <form method="GET">
+                
+                <div  style="height:400px; z-index: 99999; " class="flex flex-wrap py-1 shadow-md rounded-md border ">
+
+                 
+                    {% for name in list %}
+                    
+                    <div class="w-30  ml-4 mt-10">
+
+                        <label class="font-normal text-sm" for="language">
+                            {{name.name}}
+                        </label>
+                        <input 
+                        id="language"
+                        name='language'
+                        type="checkbox"
+                        value={{name.name}}
+                        {% if name.name in s_languages %}
+                            checked
+                        {% endif %}
+                    />
+                    </div>
+                    {% endfor %}
+
+
+                  
+                    </style>
+                 
+
+                   
+                    <div class="w-full items-end justify-end  ml-32 flex ">
+                        <div class="card bg-white py-3 px-5 rounded-xl flex flex-col " style="margin-right: 500px;">
+                            <div class="title text-xl font-medium"></div>
+                            <div class="w-full py-3 " style="margin-left: 100px;">
+                                <div id="myBtnContainer" class="space-x-2 absolute flex flex-row border ml-20 " style="margin-left: 100px; width: 300px; top: 480px; left: 250px; ">
+                                   
+                                    <button class="btn  border border-black" onclick="filterSelection('nature')" > 웹</button>
+                                    <button class="btn  border border-black" onclick="filterSelection('cars')"> 앱</button>
+                                    <button class="btn  border border-black" onclick="filterSelection('people')"> 인공지능</button>
+                                    <button class="btn  border border-black" onclick="filterSelection('people')"> 게임</button>
+
+                                  </div>
+                               
+                              
+                            </div>
+                        </div>
+                        
+                        
+
+                        <button class="absolute text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-16 mr-56">
+                            필터링
+                        </button>
+                    </form>
+                    <form metgod="GET">
+                        <button class= " text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-16 mr-20 ">
+                            초기화
+                        </button>
+                    </form>
+
+                    
+                    </div>
+                </div>
+            
+
+
+            <div class="flex justify-center">
+                <div  class="mt-8 w-full justify-center text-center">
+                    <form method="GET">
+                    <div style="justify-content:space-between;" class="flex">
+                        <button style="width:33%;" class="shadow hover:bg-pink-50 h-32 border">
+                            <div>
+                                전체 보기
+                            </div>
+                            <div class="text-6xl">
+                                {{all_study.count}}
+                            </div>
+                        </button>
+                        <button style="width:33%;" name="subject" value="continue" class="shadow hover:bg-pink-50 h-32 border">
+                            <div>
+                                모집 진행중
+                            </div>
+                            <div class="text-6xl">
+                                {{Deadline_True}}
+                            </div>
+                        </button>
+                        <button style="width:33%;" name="subject" value="dead" class="shadow hover:bg-pink-50 h-32 border">
+                            <div>
+                                모집 마감
+                            </div>
+                            <div class="text-6xl">
+                                {{Deadline_False}}
+                            </div>
+                        </button>
+                    </div>
+                    </form>
+                    <div class="mt-3 w-full ">
+                        <div style="justify-content:space-between" class="w-full flex flex-wrap">                        
+                        {% for study in studies %}
+                            {% if study.Deadline %}
+                            <a href="{% url 'studies:detail' study.pk %}" style="width:49%;" class="flex flex-wrap bg-green-50 items-center mt-6 h-32 border-green-200 border-8 shadow rounded-md border duration-200 hover:shadow-lg">
+                                <div class="w-full">
+                                    {{study.Title_Intro}}
+                                </div>
+                                <div class="w-full flex">
+                                    <div class="flex w-1/2 text-left ml-6 text-gray-500">
+                                        <span class="font-bold border rounded-lg bg-green-300">
+                                            #Deadline:
+                                        </span>
+                                        <span>
+                                            &nbsp;{{Study.Deadline_Date}}
+                                        </span>
+                                    </div>
+                                    <div class="w-1/2 text-right mr-4">
+                                        <span class="border border-gray-500 px-4 py-1 rounded-xl">
+                                            {{study.Leader}}
+                                        </span>
+                                    </div>
+                                </div>
+                            </a>
+                            {% else %}
+                                <a style="width:49%" href="{% url 'studies:detail' study.pk %}" class="flex flex-wrap opacity-40 items-center border-gray-300 mt-6 h-32 shadow rounded-md border duration-200 hover:shadow-lg">
+                                    <div class="text-md text-gray-900 w-full">
+                                        {{study.Title_Intro}}
+                                    </div>
+                                    <div class="w-full flex">
+                                        <div class="flex w-1/2 text-left ml-6 text-gray-500">
+                                            <span class="border rounded-lg bg-gray-200">
+                                                #Deadline:
+                                            </span>
+                                            <span>
+                                                &nbsp;{{study.Deadline_Date}}
+                                            </span>
+                                        </div>
+                                        <div class="w-1/2 text-right mr-4">
+                                            <span class="border border-gray-500 px-4 py-1 rounded-xl">
+                                                {{study.Leader}}
+                                            </span>
+                                        </div>
+                                    </div>
+                                </a>
+                            {% endif%}
+                        {% endfor %}
+                        </div>
+                    </div>
+                </div>
+                <div class="fixed">
+                    <a href="{% url 'studies:create' %}" style="right:200px; top:200px; left:700px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
+                        create
+                    </a>
+                </div>
+            </div> 
+
+
+
+
+
+{% endblock %}

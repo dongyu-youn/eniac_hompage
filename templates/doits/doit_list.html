@@ -2,25 +2,69 @@
 
 
 {% block content %}
+<!-- 
+<div style="margin-top:600px;" class="w-full fixed flex justify-end">
+    <a href="{% url 'doit:create' %}" style="width:200px; line-height:200px; font-size:20px; height:200px; margin-right:55px" class="bg-white text-center hover:bg-blue-50 border-black border shadow-xl text-gray-700 rounded-full">
+        개발작품올리기
+    </a>
+</div> -->
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&display=swap');  }
+  </style>
+  <div class="mt-28 flex justify-center">
+    <div class="text-center">
+      <div style="font-family: 'Gothic A1', sans-serif; font-size:37px;" class="text-black font-bold">
+        개발작품
+      </div>
+      <div style="font-family: 'Gothic A1', sans-serif; font-size:20px; font-weight:500;" class="font-bold text-gray-400 mt-6">
+        에니악 회원님들의 개발작품입니다!
+      </div>
+    </div>
+  </div>
+
+<div class="fixed">
+    <a href="{% url 'doit:create' %}" style="top:650px; left:1450px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
+        create
+    </a>
+</div>
+
+
+</div>
     <div class = "container mx-auto">
         
-
-        <div class="flex flex-wrap">
-        {% for doit in object_list %}
-            {% include 'partials/doit_card.html' with doit=doit %}
+        <script src="https://kit.fontawesome.com/53f56d64cb.js" crossorigin="anonymous"></script>
+        <div class="flex flex-wrap justify-center  " >
+        {% for abc in object_list %}
+            {% include 'partials/doit_card.html' with abc=abc %}
         {% endfor %}
         </div>
-        <h5>
+        <div class="flex items-center mx-auto container justify-center">
         {% if page_obj.has_previous %}
-            <a href="?page={{page_obj.previous_pre_number}}">Previous</a>
+            <a class="text-teal-400" href="?page={{page_obj.previous_pre_number}}">
+                <i class="fas fa-chevron-left fa-lg"></i>
+            </a>
         {% endif %}
+            
+
+   
+        <span class="mx-3 font-medium text-lg"> {{page_obj.number}} of {{page_obj.paginator.num_pages}}</span>
     
-        Page {{page_obj.number}} of {{page_obj.paginator.num_pages}}
-    
-        {% if page_obj.has_next %}
-            <a href="?page={{page_obj.next_page_number}}">Next</a>
+        {% if page_obj.has_next %} 
+            <a href="?page={{page_obj.next_page_number}}">
+                <i class="fas fa-chevron-right fa-lg "></i> 
+            </a>
         {% endif %}
-        </h5>
+
+            
+          </div>
+    
+        
+        
+        </div>
+
+     
+   
     </div>
 
     

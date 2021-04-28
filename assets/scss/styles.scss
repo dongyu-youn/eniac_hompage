@@ -2,3 +2,58 @@
 @tailwind components;
 @tailwind utilities;
 
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.ul .dep2 {
+    display: none;
+}
+
+input,
+textarea {
+    @apply rounded-sm px-4 py-2 font-light text-lg w-full border border-gray-700;
+    &:focus {
+        @apply outline-none;
+    }
+}
+
+#id_email,
+#id_password,
+#id_password1 {
+    @apply h-16;
+}
+
+form {
+    .input {
+        @apply mb-3 w-full;
+    }
+}
+
+.btn {
+    @apply text-center rounded-sm py-5 font-light text-lg w-full;
+    &.btn--small {
+        @apply py-3 rounded-lg;
+    }
+}
+
+div {
+    input{
+        @apply w-full px-4 border;
+    }
+}
+
+input#id_deadline_date{
+        @apply bg-blue-100;
+}
+
+button,
+select{
+    @apply w-full border border-black;
+}
+
+input {
+    #leader {
+        @apply bg-red-800;
+    }
+}

@@ -1,16 +1,111 @@
-{% load static%}
-<div class="w-1/4 mb-10 px-2">
-    <a href="{% url "doits:detail" doit.pk %}" class="w-full h-64 bg-cover bg-center mb-2" href="{% url "core:doit" %}"> 
-        <img href="{% url "doit:detail" doit.pk %}" class="rounded-xl" src="{% static 'img/code.png' %}" />
-        <div class="flex justify-between"> 
-        {{doit.title}} 
-        <img class="w-1/6" src="{% static 'img/github.png' %}" />
-        </div>
 
-        <span class="text-sm flex items-center">
-                {{doit.user.grade}} / {{doit.user.username}}
-        </span> 
-</a>
-    </div>
 
     
+<!-- <h2>
+    <a> 
+     
+       <div class="bg-cover bg-center mb-10
+       px-3 mr-8">
+           <div>
+               <span class="text-xs align-middle overflow-hidden">
+               {{study.memeber}}
+           </span>
+           </div>
+           <span>
+               {{study.leader}}
+           </span>
+       </div>
+   
+   </a>   
+
+   </h2>
+ -->
+
+<!-- Card 1 -->
+<div class="lg:m-4 shadow-md hover:shadow-lg hover:bg-gray-100 rounded-lg bg-white       " style="width: 400px; margin: 50px;" ">
+    <!-- Card Image -->
+        <div>
+            <img src = "{{abc.get_photo_url}}" style="height: 400px; width: 400px;" > 
+        </div>
+    <!-- Card Content -->
+        <div class=" p-4" >
+            <div style="height:226px;">
+                <h3 class="font-medium text-gray-600 text-lg my-2 uppercase">
+                    {{abc.title}}
+                </h3>
+                <p class="text-justify" >
+                    {{abc.explain}}
+                </p> 
+                <p class="text-justify" >
+                   개발자 : {{abc.개발자}}
+                </p>
+            </div>
+            <div class="h-1/5 mt-5">
+                <a href="{{abc.link}}" class="hover:bg-gray-700 rounded-full py-2 px-3 font-semibold hover:text-white bg-gray-400 text-gray-100">
+                    git 바로가기
+                </a>
+                {% if abc.user == request.user %}
+                <a href="{% url "doit:edit" abc.pk %}" class="hover:bg-blue-700 rounded-full py-2 px-3 font-semibold hover:text-white ml-2 bg-blue-400 text-gray-100">
+                    Edit
+                </a>
+                {% endif %}
+            </div>
+        </div>
+  </div>
+
+<!--    
+<div class="p-2 xl:w-1/4 md:w-1/2 w-1/12 mb-12">
+    <div
+        class="bg-green-500 h-full rounded-lg mb-6 flex flex-col  overflow-hidden shadow-xl"
+    >
+        <span
+            class="bg-indigo-500 text-white px-3 py-1 tracking-widest text-xs absolute right-0 top-0 rounded-bl"
+            >{{abc.Programing_Language}}</span
+        >
+        
+        <div
+            class="h-48"
+            style="
+                background-image: url(image.png);
+            "
+        >
+            <div class="text-2xl text-white mt-4 ml-4">{{abc.title}}</div>
+        </div>
+        <div>
+            <img src = "{{abc.get_photo_url}}" style="height: 400px; width: 400px;" > 
+       </div>
+        <div
+            class="pt-8 pl-4 pr-4 flex rounded-lg items-center text-gray-900"
+        >
+            <p>
+                {{abc.explantion}}
+            </p>
+        </div>
+    </div>
+    <button
+        class="flex items-center mt-auto text-white bg-red-600 border-0 py-2 px-4 w-full focus:outline-none hover:bg-red-400 rounded-xl shadow-xl"
+    >
+        Button
+    </button>
+</div> -->
+
+
+
+
+<!-- rtkvygusgksmsrdpDy erkwlruddndmltnrkd lTek wjakf Rmeo qjflakqdms akdmadlek sjan tnltmfjqrh enfuqrh
+qlckgakthtjfqjrh ekdnffkdhhsek EH gksksms rkWkrnsk djEjgrp ehlems whgmsryw vygusgkrl todghkfthrdptj
+sjan antjdnjtj vygusqhtksmsrj qjfalqkedmfRKqhk enfudna wkf ahtgkspdy qjflaqkedms kadma 
+smRlfntkr dltdjdi qjflakedsmakdmadl sjanzjtj ansdmkseksms doRlsms qjflaqkdmsakdkad dmdsKRfurhgksMRhwrmfh
+rksek wlqqkRdmf hskrkaus ehlehfrh dkskrrh qjflawkedmsakdmasmd sejzjelwhr wjawja dkanrjteh ahgtlske
+dkanrjteh wjawja dksgkrl ehlsek ajfakd dprhfmf Rosms qkdqjq 
+rkwkdwhgmds qkdqjqdms ehwjsgksmsrek rhosfl enfudnjgoTrnsk qjflkqdmsf hkffl zmrhdy 
+sir kgrh sork thrdml akdmadm vygusgkrh gkekqhaus qflqkedms akdmadm smRLrh dlsjwdgksf ghkrfbfdl shvke 
+ahemsgodhrms wfgkfussm wlqckrdl Emske tkfkaemfdms wlqckrdmf dksqhrh tvdj
+dlrp dksehlaus qjflekmsakdmad aksdgmdrPDy dlEJsdfmdm dksgksmrjdi Roeekrl wjsdpsms qlqckrmdhf gkske 
+qjflaqkdmsakdmadm smrudehlslKR wlqckrdmf TMaustj tkfrjsk tlfwldml skdhk rorrhkswjrdksl skdhk 
+\wjsgu emstkdox rmfjsruddndp wprk dffuefmrh WLrtmqslek enfudnadl sjwakf rmsid enfudnal dksldPd 
+wnerdlaekgsk dkrlemfdl aksgdms akdmadml vguxofmf akdma dhkdlTe kskgksxp gkfdkqjlwgkfjasldml akdma
+wnrdlaekdgkRk enfudntj qjfqjfEjfr rmjsdkrlemfd mandmtlthrdp sjan enfudntj dlwjdeh ahtgo
+xhddmfh emfudnwk[crk ehljfsdkrlmef] skaWHrwlajddl rmfjs jEjs durtkrk ldTskqhkhdy dkssmrlfurh gksmsetl 
+todrkrdmf rpThrehffsek wlfandl aksgek rmfotjdy wlfans rmfjaw dml eoekqdms gksy 
+     -->
