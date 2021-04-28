@@ -171,7 +171,7 @@
         <div class="border-gray-900  ">
             <h3 class="text-4xl font-bold mt-7 ml-10">
                 모집중인 스터디그룹
-                <span class="uppercase  text-gray-400 text-sm font-normal  md:hover:underline  ">전체보기</span>
+                <a href="{% url 'studies:list' %}"  class="uppercase  text-gray-400 text-sm font-normal  md:hover:underline  ">전체보기</a>
                 <p class="border border-b border-black ml-96 md-10 "></p>
               
                
@@ -239,7 +239,7 @@
         <span style="top: 1800px; width: 1000px; height: 50px; margin-left: 150px; " class="  absolute px-2 py-2 text-4xl font-semibold tracking-wider  rounded  text-white   focus:outline-none focus:ring-2 focus:ring-gray-300 ">스터디를 만들어보세요!</span>
         <span style="top: 1850px; width: 1000px; height: 50px; margin-left: 150px;" class="  absolute px-2 py-2 text-xl font-normal tracking-wider  rounded  text-white   focus:outline-none focus:ring-2 focus:ring-gray-300 ">나만의 스터디를 만들어보세요</span>
         
-        <button style="top: 1900px; width: 200px; height: 50px; margin-left: 150px;" class="bg-white absolute px-2 py-2 text-lg font-semibold tracking-wider border-2 border-gray-300 rounded hover:bg-gray-200 text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 ">스터디 만들기</button>
+        <button onclick="location.href={% url 'studies:create' %}" style="top: 1900px; width: 200px; height: 50px; margin-left: 150px;" class="bg-white absolute px-2 py-2 text-lg font-semibold tracking-wider border-2 border-gray-300 rounded hover:bg-gray-200 text-gray-600 focus:outline-none focus:ring-2 focus:ring-gray-300 ">스터디 만들기</button>
     </div>
 
 
