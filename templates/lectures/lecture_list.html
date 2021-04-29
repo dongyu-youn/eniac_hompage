@@ -1,17 +1,28 @@
 {% extends "base.html"%}
 {% block content %}
+<!DOCTYPE html>
+<html lang="en">
 
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&display=swap');  }
+  @media (max-width: 600px) {
+  .title {
+    font-size: 80px;
+  }
+}
 </style>
+
+
+
 <div class="fixed">
   <a href="{% url 'lecture:create' %}" style="top:600px; left:1450px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
       create
   </a>
 </div>
-<div class="mt-28 flex justify-center">
+<div class="abc mt-28 flex justify-center">
   <div class="text-center">
-    <div style="font-family: 'Gothic A1', sans-serif; font-size:37px;" class="text-black font-bold">
+    <div class="title" style="font-family: 'Gothic A1', sans-serif; font-size:37px;" class="text-black font-bold">
       추천 강의들을 소개해보세요
     </div>
     <div style="font-family: 'Gothic A1', sans-serif; font-size:20px; font-weight:500;" class="font-bold text-gray-400 mt-6">
@@ -77,4 +88,10 @@
     {% endfor %}
   </div>
 </div>
+
+
+<body>
+    
+</body>
+</html>
 {% endblock %}
