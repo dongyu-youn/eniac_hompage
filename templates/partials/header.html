@@ -4,8 +4,9 @@
    <div style="font-size:25px;" class=" border-b-2 hover:border-red-700 border-black px-2 m-3 float-left items-center font-black text-white">
       🚨
    </div>
-   {%if user.is_authenticated %}    
-       <li class=" border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a href="{% url "users:logout" %}">로그아웃</a></li>
+   {%if user.is_authenticated %}  
+   <li class=" border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a href="{% url "users:profile" user.pk%}">프로필</a></li>  
+   <li class=" border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a href="{% url "users:logout" %}">로그아웃</a></li>
     {% else %} 
        <li class=" border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white" ><a href="{% url "users:login" %}">로그인</a></li>
        <li class=" border-b-2 hover:border-yellow-400 border-black px-2 m-3 float-left items-center font-black text-white"><a href="{% url "users:signup" %}">회원가입</a></li>

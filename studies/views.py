@@ -18,6 +18,8 @@ def studiesview(request):
     all_study = models.Study.objects.all()
     Deadline_False = all_study.filter(Deadline=False).count()
     Deadline_True = all_study.filter(Deadline=True).count()
+
+    
     
 
     if len(s_languages):

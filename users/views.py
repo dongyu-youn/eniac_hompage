@@ -5,6 +5,8 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages.views import SuccessMessageMixin
 from open_source import models as Open_Source_models
+from django.views.generic import FormView, DetailView
+from . import models
 
 # Create your views here.
 
@@ -22,7 +24,7 @@ class LoginView(FormView, SuccessMessageMixin):
         if user is not None:
             login(self.request, user)
         return super().form_valid(form)
- 
+
 def log_out(request):
     logout(request)
     return redirect(reverse("core:price"))
@@ -67,3 +69,6 @@ class SignUpView(FormView):
     #         login(self.request, user)
     #         # models.verify_email()
     #     return super().form_valid(form)
+
+class ProfielView(DetailView):
+    model = models.User

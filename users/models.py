@@ -1,7 +1,9 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.core.validators import MinValueValidator, MaxValueValidator
+from django.conf import settings
 # Create your models here.
+
 
 class User(AbstractUser):
 
@@ -37,4 +39,14 @@ class User(AbstractUser):
     entered_eniac = models.IntegerField(default=32)
     name = models.CharField(max_length=20)
     profile_image = models.ImageField()
+    
+    def get_absolute_url(self):
+     
+        return reverse("users:profile", kwargs={'pk': self.pk})
+
+   
+class Profile(models.Model):
+    user = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    nickname = models.CharField(max_length=64)
+    profile_photo = models.ImageField(blank=True)                 # 값을 채워넣지 않아도 되는 속성.
     

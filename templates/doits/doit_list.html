@@ -23,15 +23,13 @@
     </div>
   </div>
 
-<div class="fixed">
-    <a href="{% url 'doit:create' %}" style="top:650px; left:1450px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
-        create
-    </a>
-</div>
+  
+ 
 
 
 </div>
     <div class = "container mx-auto">
+        
         
         <script src="https://kit.fontawesome.com/53f56d64cb.js" crossorigin="anonymous"></script>
         <div class="flex flex-wrap justify-center  " >
@@ -63,7 +61,65 @@
         
         </div>
 
-     
+        <div class="fixed">
+            <style>
+                .button {
+                  display: inline-block;
+                  border-radius: 4px;
+                  background-color: #423C3C;
+                  border: none;
+                  color: #FFFFFF;
+                  text-align: center;
+                  font-size: 28px;
+                  padding: 20px;
+                  width: 200px;
+                  transition: all 0.5s;
+                  cursor: pointer;
+                  margin: 5px;
+                }
+                
+                .button span {
+                  cursor: pointer;
+                  display: inline-block;
+                  position: relative;
+                  transition: 0.5s;
+                }
+                
+                .button span:after {
+                  content: '\00bb';
+                  position: absolute;
+                  opacity: 0;
+                  top: 0;
+                  right: -20px;
+                  transition: 0.5s;
+                }
+                
+                .button:hover span {
+                  padding-right: 25px;
+                }
+                
+                .button:hover span:after {
+                  opacity: 1;
+                  right: 0;
+                }
+                </style>
+          
+            
+                
+              
+                
+                
+                
+        
+        
+        
+        </div>
+        <!-- <div class="fixed">
+            <a href="{% url 'doit:create' %}" style="top:650px; left:1450px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
+                create
+            </a>
+        </div> -->
+        <button onclick="location.href='{% url 'doit:create' %}'" class="button py-14 px-10 text-center  border shadow-md relative rounded-full" style="vertical-align:middle; height: 100px;  left:1850px; font-size:20px;"><span>개발작품올리기 </span></button>
    
     </div>
 
