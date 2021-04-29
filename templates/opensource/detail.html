@@ -57,6 +57,7 @@
                     </div>
                 </div>
             </div>
+            {{}}
             {% if opensource.OpenSource_host == request.user %}
                 <div class="flex justify-center ml-5 ">
                     <a href="{% url "opensource:update" opensource.pk %}">
@@ -150,6 +151,8 @@
                     </div>
                 </div>
             </div>
+            {{request.user}}
+            {{res}}
             {% if review.OpenSource_host == request.user %}
                 <div class="flex justify-center ml-5 ">
                     <a href="{% url "reviews:edit" review.pk %}">
