@@ -6,6 +6,8 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages.views import SuccessMessageMixin
 from open_source import models as Open_Source_models
 from django.views.generic import FormView, DetailView
+from studies.models import Study
+from doits.models import Doit
 from . import models
 
 # Create your views here.
@@ -70,5 +72,9 @@ class SignUpView(FormView):
     #         # models.verify_email()
     #     return super().form_valid(form)
 
-class ProfielView(DetailView):
-    model = models.User
+def ProfielView(request, pk):
+    abc = Study.objects.filter(Room_Host = request.user)
+    doit = Doit.objects.filter(user = request.user)
+    return render(request, "users/user_detail.html", {"abc": abc,"doit": doit} )
+
+  

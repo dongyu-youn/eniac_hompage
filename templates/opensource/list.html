@@ -51,9 +51,34 @@
     코드를 질문해주세요!
 </div>
 
+
 <div stlye="width:2000px;" class="flex justify-center " >
     <div class="flex flex-wrap w-11/12 justify-center ">
         {% for OpenSource in opensources %}
+        {% if OpenSource.error_signal  %}
+        <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl transform hover:scale-110 motion-reduce:transform-none">
+        <a href="{% url "opensource:detail" OpenSource.pk %}" class="">
+            <div style="overflow:hidden; word-wrap:break-word;" class="{% if OpenSource.error_signal %}bg-pink-100 {% endif %}py-7 px-8 width-full h-3/4 {% if OpenSource.error_signal %}bg-pink-50{% endif %} border border-yellow-200">
+                {{OpenSource.explain_situation}}
+            </div>
+            <div style="font-size:20px; font-family: 'Gothic A1', sans-serif;" class="{% if OpenSource.error_signal %}text-pink-400 bg-pink-100{% endif %} font-bold text-black h-1/4">
+                <div>
+                    {{OpenSource.OpenSource_host.name}}
+                </div>
+                <div class="mt-1 flex justify-end mr-3" >
+                    {% for Lang in OpenSource.code_Language.all %}
+                        <span style="font-size:20px;" class="border py-1 px-2 text-white bg-purple-400 rounded-xl">
+                            {{Lang}}
+                        </span>
+                    {% endfor %}
+                </div>
+            </div>
+        </a>
+        </div>
+    {% endif %}
+    {% endfor %}
+        {% for OpenSource in opensources %}
+    {% if not OpenSource.error_signal %}
             <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl transform hover:scale-110 motion-reduce:transform-none">
             <a href="{% url "opensource:detail" OpenSource.pk %}" class="">
                 <div style="overflow:hidden; word-wrap:break-word;" class="{% if OpenSource.error_signal %}bg-pink-100 {% endif %}py-7 px-8 width-full h-3/4 {% if OpenSource.error_signal %}bg-pink-50{% endif %} border border-yellow-200">
@@ -73,10 +98,12 @@
                 </div>
             </a>
             </div>
-        
+        {% endif %}
         {% endfor %}
+
         </div>
     </div>
+    
 </div>
 
 
