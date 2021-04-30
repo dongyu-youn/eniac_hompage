@@ -18,9 +18,7 @@ def studiesview(request):
     all_study = models.Study.objects.all()
     Deadline_False = all_study.filter(Deadline=False).count()
     Deadline_True = all_study.filter(Deadline=True).count()
-
-    
-    
+    language_categori = request.GET.get("language_categori")
 
     if len(s_languages):
         study = study.filter(Programing_Language__name__in=s_languages,).distinct()
@@ -33,6 +31,15 @@ def studiesview(request):
         study = study.filter(Deadline=True)
     elif(check_list == "dead"):
         study = study.filter(Deadline=False)
+    if language_categori:
+        if(language_categori=="웹"):
+            study = study.filter(study_genre="Web")
+        elif(language_categori=="앱"):
+            study = study.filter(study_genre="App")
+        elif(language_categori=="인공지능"):
+            study = study.filter(study_genre="Machine_Learning")
+        elif(language_categori=="게임"):
+            study = study.filter(study_genre="Game")
     return render(request,"studies/list.html", 
         {"list":language_list,
         "studies": study,

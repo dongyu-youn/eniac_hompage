@@ -14,13 +14,30 @@ class AbstractItem(core_models.TimeStampedModel):
     def __str__(self):
         return self.name 
 
+
 class LanguageType(AbstractItem):
     
     class Meta:
         verbose_name_plural = "LanguageType"
 
+
+Web = "Web"
+App = "App"
+machine_learning = "Machine_Learning"
+game = "Game"
+etc = "Etc"
+
+STUDY_GENRE_CHOICES = (
+    ("Web", Web),
+    ("App", App),
+    ("Machine_Learning", machine_learning),
+    ("Game", game),
+    ("Etc", etc),
+)
+
 class Study(core_models.TimeStampedModel):
 
+    study_genre = models.CharField(choices=STUDY_GENRE_CHOICES, max_length=79)
     Study_Name = models.CharField(max_length=70)
     Leader = models.CharField(max_length=70)
     Recruit_Member_Number = models.IntegerField()

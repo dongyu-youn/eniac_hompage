@@ -10,7 +10,7 @@ class ItemAdmin(admin.ModelAdmin):
 @admin.register(models.Study)
 class StudyAdmin(admin.ModelAdmin):
     
-    list_display = ("Leader", "count_rooms","Deadline",)
+    list_display = ("study_genre", "Leader", "count_rooms","Deadline",)
 
     filter_horizontal = ("Programing_Language","Room_Member")
 

@@ -6,12 +6,12 @@ class StudyModelForm(forms.ModelForm):
         model = models.Study
         fields = (
             "Study_Name",
+            "study_genre",
             "Programing_Language",
             "Recruit_Member_Number",
             "Learning_Cycle",
             "Deadline_Date",
             "Introduce",
-    
             "Image",
         )
 
