@@ -33,10 +33,10 @@ class User(AbstractUser):
     
     email = models.CharField(max_length=70, null=True, blank=True)
     fav_pro_genre = models.CharField(choices=GENRE_CHOICES, max_length=20, blank=True, null=True)
-    nickname = models.CharField(max_length=20)
+    
     major = models.CharField(max_length=20, blank=True, null=True)
     grade = models.CharField(choices=GRADE_CHOICES, max_length=20, blank=True, null=True)
-    entered_eniac = models.IntegerField(default=32)
+    entered_eniac = models.CharField(default=32, max_length=10)
     name = models.CharField(max_length=20)
     profile_image = models.ImageField()
     

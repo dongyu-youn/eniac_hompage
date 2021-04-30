@@ -24,17 +24,21 @@ class LoginForm(forms.Form):
 
 class SignUpForm(forms.Form):
 
-    name = forms.CharField(max_length=80, widget=forms.TextInput(attrs={'placeholder': 'Enter your name'}))
-    aniac_code = forms.CharField(widget=forms.PasswordInput)
+    name = forms.CharField(max_length=80, widget=forms.TextInput(attrs={'placeholder': '이름을 입력해주세요'}))
+    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': '아이디'}))
+    password = forms.CharField(widget=forms.PasswordInput)
+    password1 = forms.CharField(widget=forms.PasswordInput, label="비밀번호를 등록해주세요")
+
     grade = forms.ChoiceField(choices=models.User._meta.get_field('grade').choices)
     fav_pro_genre = forms.ChoiceField(choices=models.User._meta.get_field('fav_pro_genre').choices)
-    major = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'placeholder': 'Enter Your Major'}))
-    entered_eniac = forms.IntegerField(widget=forms.TextInput(attrs={'placeholder': 'entered 2021-> 31'}))
+   
+    major = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'placeholder': '학과를 입력해주세요'}))
+    entered_eniac = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '에니악 기수를 입력해주세요(2021년도 -> 31기)'}))
+    
     profile_image = forms.ImageField()
-    nickname = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'placeholder': 'Enter Free'}))
-    email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': 'it\'s your ID'}))
-    password = forms.CharField(widget=forms.PasswordInput)
-    password1 = forms.CharField(widget=forms.PasswordInput, label="Confirm Password")
+    aniac_code = forms.CharField(widget=forms.PasswordInput)
+ 
+    
 
     class Meta:
         model = models.User
@@ -64,20 +68,22 @@ class SignUpForm(forms.Form):
 
     def save(self):
         fav_pro_genre = self.cleaned_data.get("fav_pro_genre")
-        nickname = self.cleaned_data.get("nickname")
+       
         major = self.cleaned_data.get("major")
         grade = self.cleaned_data.get("grade")
         email = self.cleaned_data.get("email")
         password = self.cleaned_data.get("password")
         name = self.cleaned_data.get("name")
+      
         entered_eniac = self.cleaned_data.get("entered_eniac") 
         profile_image = self.cleaned_data.get("profile_image")
         user = models.User.objects.create_user(email, email, password)
         user.fav_pro_genre = fav_pro_genre
-        user.nickname = nickname
+      
         user.major = major
         user.grade = grade
         user.name = name
+        user.grade = grade
         user.profile_image = profile_image
         user.entered_eniac = entered_eniac
 

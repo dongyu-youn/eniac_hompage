@@ -17,8 +17,14 @@ from django.core.paginator import Paginator
 #    queryset = models.Lecture.objects.order_by('-created')
 
 def lectureview(request):
+    page = request.GET.get("page")
     lectures = models.Lecture.objects.all()
+    paginator = Paginator(lectures, 10)
+    lecture = paginator.get_page(page) 
     genre = request.POST.get("classify_genre")
+
+
+
     print(genre)
     if(genre == None or genre == all):
         print("pass")
