@@ -28,7 +28,7 @@ urlpatterns = [
     path("", include("open_source.urls", namespace="opensource")),    
     path("", include("studies.urls", namespace="studies")),
     path("", include("reviews.urls", namespace="reviews")),
-    path("", include("applies.urls", namespace="applies")),
+  
     path("", include("notices.urls", namespace="notices")),
 ]
 

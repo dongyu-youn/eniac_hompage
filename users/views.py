@@ -77,4 +77,3 @@ def ProfielView(request, pk):
     doit = Doit.objects.filter(user = request.user)
     return render(request, "users/user_detail.html", {"abc": abc,"doit": doit} )
 
-  

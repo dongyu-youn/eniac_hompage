@@ -14,17 +14,34 @@ class AbstractItem(core_models.TimeStampedModel):
     def __str__(self):
         return self.name 
 
+
 class LanguageType(AbstractItem):
     
     class Meta:
         verbose_name_plural = "LanguageType"
 
+
+Web = "Web"
+App = "App"
+machine_learning = "Machine_Learning"
+game = "Game"
+etc = "Etc"
+
+STUDY_GENRE_CHOICES = (
+    ("Web", Web),
+    ("App", App),
+    ("Machine_Learning", machine_learning),
+    ("Game", game),
+    ("Etc", etc),
+)
+
 class Study(core_models.TimeStampedModel):
 
+    study_genre = models.CharField(choices=STUDY_GENRE_CHOICES, max_length=79, blank=True, null=True)
     Study_Name = models.CharField(max_length=70)
     Leader = models.CharField(max_length=70)
     Recruit_Member_Number = models.IntegerField()
-    Programing_Language = models.ManyToManyField("studies.LanguageType", related_name="language")
+    Programing_Language = models.ManyToManyField("studies.LanguageType", related_name="language",blank=True)
     Deadline = models.BooleanField(default=False)
     Title_Intro = models.TextField(null=True, blank=True)
     Introduce = models.TextField(null=True, blank=True)

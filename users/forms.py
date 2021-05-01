@@ -26,8 +26,8 @@ class SignUpForm(forms.Form):
 
     name = forms.CharField(max_length=80, widget=forms.TextInput(attrs={'placeholder': '이름을 입력해주세요'}))
     email = forms.EmailField(widget=forms.TextInput(attrs={'placeholder': '아이디'}))
-    password = forms.CharField(widget=forms.PasswordInput)
-    password1 = forms.CharField(widget=forms.PasswordInput, label="비밀번호를 등록해주세요")
+    password = forms.CharField(widget=forms.PasswordInput())
+    password1 = forms.CharField(widget=forms.PasswordInput, label="Confirm password")
 
     grade = forms.ChoiceField(choices=models.User._meta.get_field('grade').choices)
     fav_pro_genre = forms.ChoiceField(choices=models.User._meta.get_field('fav_pro_genre').choices)
@@ -36,7 +36,7 @@ class SignUpForm(forms.Form):
     entered_eniac = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '에니악 기수를 입력해주세요(2021년도 -> 31기)'}))
     
     profile_image = forms.ImageField()
-    aniac_code = forms.CharField(widget=forms.PasswordInput)
+    aniac_code = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': '에니악코드 4자리를 입력해주세요'}))
  
     
 

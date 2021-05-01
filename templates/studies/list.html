@@ -96,23 +96,21 @@
                         <div class="card bg-white py-3 px-5 rounded-xl flex flex-col " style="margin-right: 500px;">
                             <div class="title text-xl font-medium"></div>
                             <div class=" w-full py-3 " style="margin-left: 100px;">
-                                <div id="" class="space-x-2 absolute flex flex-row    " style="margin-left: 200px; width: 300px; top: 520px; left: 250px;  ">
-                                   
-                                    <button class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
+                                <div id="" class="space-x-2 absolute flex flex-row    " style="margin-left: 100px; width: 300px; top: 520px; left: 250px;  ">
+                                    <button name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
                                         웹
                                     </button>
-                                    <button class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
+                                    <button name="language_categori" value="앱" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
                                         앱
                                     </button>
-                                    <button class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
+                                    <button name="language_categori" value="인공지능" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
                                         인공지능
                                     </button>
-                                    <button class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
+                                    <button name="language_categori" value="게임" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32 h-8 ">
                                         게임
                                     </button>
 
                                   </div>
-                               
                               
                             </div>
                         </div>
@@ -192,7 +190,7 @@
                             {% else %}
                                 <a style="width:49%" href="{% url 'studies:detail' study.pk %}" class="flex flex-wrap opacity-40 items-center border-gray-300 mt-6 h-32 shadow rounded-md border duration-200 hover:shadow-lg">
                                     <div class="text-md text-gray-900 w-full">
-                                        {{study.Title_Intro}}
+                                        {{study.Study_Name}}
                                     </div>
                                     <div class="w-full flex">
                                         <div class="flex w-1/2 text-left ml-6 text-gray-500">

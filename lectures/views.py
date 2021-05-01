@@ -17,10 +17,12 @@ from django.core.paginator import Paginator
 #    queryset = models.Lecture.objects.order_by('-created')
 
 def lectureview(request):
-    page = request.GET.get("page")
+   
     lectures = models.Lecture.objects.all()
-    paginator = Paginator(lectures, 10)
-    lecture = paginator.get_page(page) 
+    paginator = Paginator(lectures, 9)
+    page = request.GET.get("page")
+    abc = paginator.get_page(page) 
+    
     genre = request.POST.get("classify_genre")
 
 
@@ -30,16 +32,16 @@ def lectureview(request):
         print("pass")
         pass
     elif(genre == "web"):
-        lectures = models.Lecture.objects.filter(category="웹")
+        abc = models.Lecture.objects.filter(category="웹")
     elif(genre == "machine_learning"):
-        lectures = models.Lecture.objects.filter(category="인공지능")
+        abc = models.Lecture.objects.filter(category="인공지능")
     elif(genre == "game"):
-        lectures = models.Lecture.objects.filter(category="게임")
+        abc = models.Lecture.objects.filter(category="게임")
     elif(genre == "app"):
-        lectures = models.Lecture.objects.filter(category="앱")
+        abc = models.Lecture.objects.filter(category="앱")
     elif(genre == "whatever"):
-        lectures = models.Lecture.objects.filter(category="그외")
-    return render(request, "lectures/lecture_list.html", {"lectures": lectures})
+        abc = models.Lecture.objects.filter(category="그외")
+    return render(request, "lectures/lecture_list.html", {"lectures": lectures, "abc": abc})
 
 class LectureCreateView(CreateView):
     template_name = 'lectures/lecture_create.html'

@@ -48,7 +48,7 @@ PROJECT_APPS = [
     "lectures.apps.LecturesConfig",
     "open_source.apps.OpenSourceConfig",
     "studies.apps.StudiesConfig",
-    "applies.apps.AppliesConfig",
+    
     "notices.apps.NoticesConfig",
     
 ]
