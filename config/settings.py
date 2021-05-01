@@ -23,7 +23,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o*f+#d+4xv=tr@^j9a+)#mcyx@wh#6(@ov&d-%0j&ovanje*^+'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ["*"]
 
@@ -48,7 +48,7 @@ PROJECT_APPS = [
     "lectures.apps.LecturesConfig",
     "open_source.apps.OpenSourceConfig",
     "studies.apps.StudiesConfig",
-    
+  
     "notices.apps.NoticesConfig",
     
 ]
@@ -102,9 +102,6 @@ DATABASES = {
     }
 }
 
-ALLOWED_HOSTS = [
-    'pjok1122.pythonanywhere.com'
-]
 
 # Password validation
 # https://docs.djangoproject.com/en/2.2/ref/settings/#auth-password-validators
@@ -139,14 +136,13 @@ USE_L10N = True
 USE_TZ = True
 
 
-
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.2/howto/static-files/
 
 STATIC_URL = '/static/'
 
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+
 
 
 AUTH_USER_MODEL = "users.User"
