@@ -1,0 +1,1 @@
+web: gunicorn ENIAC.wsgi --log-file -
