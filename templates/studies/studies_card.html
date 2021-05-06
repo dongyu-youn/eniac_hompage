@@ -19,7 +19,7 @@
  -->
 
  <div>
-    <img onclick="location.href='{% url 'studies:detail' study.pk %}';" src = "{{study.get_photo_url}}" style="height: 100px; width: 100px;" class="border rounded-full transform hover:scale-110 motion-reduce:transform-none"> 
+    <img onclick="location.href='{% url 'studies:detail' study.pk %}';" src = "{{study.get_photo_url}}" style="height: 100px; width: 100px;" class="border rounded-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"> 
    
     </div>
 

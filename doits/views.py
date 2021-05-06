@@ -58,6 +58,7 @@ class DoitEditView(UpdateView):
       "image",
       "explain",
       "link",
+      "개발자",
    )
 
    def get_object(self, queryset=None):

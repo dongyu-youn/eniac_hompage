@@ -11,7 +11,7 @@ from lectures.models import Lecture
 from doits.models import Doit
 
 def PriceView(request):
- obj = Price.objects.all().order_by('-created')[:4]
+ obj = Price.objects.all().order_by('-created')[:3]
  obj_t = Study.objects.all().order_by('-created')[:6]
  obj_l = Lecture.objects.all().order_by('-created')[:4]
  obj_d = Doit.objects.all().order_by('-created')[:3]

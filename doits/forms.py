@@ -11,7 +11,7 @@ class CreateView(forms.ModelForm):
             "image",
             "explain",
             "link",
-            # "개발자",
+            "개발자",
           
             # "user",
         )

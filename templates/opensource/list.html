@@ -12,44 +12,15 @@
   </style>
 
 
-<div class="flex justify-center">
-    <div style="color:black; font-family: 'Gothic A1', sans-serif; font-size:60px; text-align:center; width:300px; height:100px;" class="font-bold mt-32">
-        코드 질문
-        <!-- <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
-            <div style="width:65px;" class="">
-                <div style="margin-left:8px; margin-bottom:8px; width:68.5px;" class="mb-1 border border-blue-600  rounded-full absolute">
-                    F
-                </div>
-            </div>
-            <div style="letter-spacing: 7px;">
-                IXING
-            </div>
-        </div>
-        <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
-            <div style="width:65px;" class="">
-                <div style="margin-left:8px; margin-bottom:8px; width:68px;" class="mb-1 border border-purple-400  rounded-full fabsolute">
-                    C
-                </div>
-            </div>
-            <div style="letter-spacing: 7px;">
-                ODE
-            </div>
-        </div>
-        <div style="font-size:44px;" class="font-bold text-black mx-auto flex justify-center">
-            <div style="width:65px;" class="">
-                <div style="margin-left:8px; margin-bottom:8px; width:68.5px;" class="mb-1 border border-pink-400  rounded-full absoluted">
-                    E
-                </div>
-            </div>
-            <div style="letter-spacing: 7px;"class=>
-                RROR,,
-            </div>
-        </div> -->
+<div class="text-center mt-36">
+    <div class="title" style="font-family: 'Gothic A1', sans-serif; font-size:37px;" class="text-black font-bold">
+      코드질문
     </div>
-</div>
-<div style="font-size:30px; font-family: 'Bellefair', serif;" class="text-gray-500 flex justify-center">
-    코드를 질문해주세요!
-</div>
+    <div style="font-family: 'Gothic A1', sans-serif; font-size:20px; font-weight:500;" class="font-bold text-gray-400 mt-6">
+      막히는 코드를 질문해보세요!
+    </div>
+  </div>
+
 <div style="font-family: 'Gothic A1', sans-serif; margin-top:45px; margin-bottom:10px; margin-right:200px;" class="text-gray-400 flex justify-end ">
     *사진은 되도록 규격에 맞춰 올려서주세요
   </div>
@@ -81,10 +52,10 @@
     {% endfor %}
         {% for OpenSource in opensources %}
     {% if not OpenSource.error_signal %}
-            <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl transform hover:scale-110 motion-reduce:transform-none">
+            <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
             <a href="{% url "opensource:detail" OpenSource.pk %}" class="">
                 <div style="overflow:hidden; word-wrap:break-word;" class="{% if OpenSource.error_signal %}bg-pink-100 {% endif %}py-7 px-8 width-full h-3/4 {% if OpenSource.error_signal %}bg-pink-50{% endif %} border border-yellow-200">
-                    {{OpenSource.explain_situation}}
+                    {{OpenSource.explain_situation}}    
                 </div>
                 <div style="font-size:20px; font-family: 'Gothic A1', sans-serif;" class="{% if OpenSource.error_signal %}text-pink-400 bg-pink-100{% endif %} font-bold text-black h-1/4">
                     <div>

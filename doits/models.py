@@ -105,6 +105,7 @@ class Doit(core_models.TimeStampedModel):
   user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=True, blank=True)
   link = models.URLField(max_length=70)
 
+  
   def __str__(self):
     return self.title  
   
@@ -120,3 +121,4 @@ class Doit(core_models.TimeStampedModel):
           return "/static/images/user.jpg"
 
 #학년, 제목, 카테고리, 장르, 유저, 깃허브주소 유저
+
