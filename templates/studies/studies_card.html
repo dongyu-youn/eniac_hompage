@@ -19,11 +19,25 @@
  -->
 
  <div>
-    <img onclick="location.href='{% url 'studies:detail' study.pk %}';" src = "{{study.get_photo_url}}" style="height: 100px; width: 100px;" class="border rounded-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"> 
+    <style>
+        @media (max-width:500px) {
+               #img {
+                   left: 400px;
+                       }
+              
+               
+               #name {
+                   width: 150px;
+                       }
+              
+               } 
+            
+   </style>
+    <img id="img" onclick="location.href='{% url 'studies:detail' study.pk %}';" src = "{{study.get_photo_url}}" style="height: 100px; width: 100px;" class="border rounded-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"> 
    
     </div>
 
-    <div class="mb-4 mr-28  border-gray-500 ml-3" style="width: 260px; ">
+    <div id="name" class="mb-4 mr-28  border-gray-500 ml-3 " style="width: 100px; ">
         <h2 class="text-base font-blod "> {{study.Study_Name }}</h4>
         <h3 class="mt-2 font-hairline text-base text-grey-darker">
             {{study.Room_Host.name}}

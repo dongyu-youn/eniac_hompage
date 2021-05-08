@@ -122,3 +122,4 @@ class Doit(core_models.TimeStampedModel):
 
 #학년, 제목, 카테고리, 장르, 유저, 깃허브주소 유저
 
+    
