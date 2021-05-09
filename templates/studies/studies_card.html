@@ -18,26 +18,16 @@
    </h2>
  -->
 
- <div>
+
     <style>
-        @media (max-width:500px) {
-               #img {
-                   left: 400px;
-                       }
-              
-               
-               #name {
-                   width: 150px;
-                       }
-              
-               } 
+    
             
    </style>
+   <div class="flex flex-wrap">
     <img id="img" onclick="location.href='{% url 'studies:detail' study.pk %}';" src = "{{study.get_photo_url}}" style="height: 100px; width: 100px;" class="border rounded-full transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110"> 
    
-    </div>
 
-    <div id="name" class="mb-4 mr-28  border-gray-500 ml-3 " style="width: 300px; ">
+    <div id="name" class="mb-4  border-gray-500  " style=" ">
         <h2 class="text-base font-blod "> {{study.Study_Name }}</h4>
         <h3 class="mt-2 font-hairline text-base text-grey-darker">
             {{study.Room_Host.name}}
@@ -49,6 +39,7 @@
         <p class="inline block  text-grey-darker bg-grey-lighter font-hairline text-2xs">
             모집 마감날짜 : {{study.Deadline_Date}}
         </p>
+</div>
 </div>
 
 

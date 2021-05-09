@@ -40,26 +40,44 @@
                       #study {
                         line-height: 20px;
                         width: 260px;
+                        padding-left: 50px;
                             }
                       #img {
-                        margin-left: 200px;
+                   
+                      }
+                      #name {
+                        width: 100px;
                       }
                     } 
       
-         @media (min-width:1300px) and (max-width:1600px) {
+         @media (min-width:1200px) and (max-width:1700px) {
             #about {
+                        
                         text-align: start; 
-                        margin-left: 500px;
+                        padding-left: 250px;
                             }   
                     #about_a {
-                        margin-left: 200px;
+                        padding-left: 200px;
                             }
                      #study {
-                        margin-right: 600px;
-                        margin-left: 100px;
+                        padding-left: 100px;
+                    
                              }
+                     #name {
+                        width: 300px;
+                      }
                     } 
-                    }   
+            @media (min-width:1700px) and (max-width:2200px) {
+           
+                     #study {
+                     
+                        padding-left: 100px;
+                             }
+                     #name {
+                        width: 430px;
+                      }
+                    } 
+                    
                     
 
 </style>
@@ -130,7 +148,7 @@
 
                
                     
-                        <div id="study" class="flex flex-wrap w-full   mt-10  ">
+                        <div id="study" class="flex flex-wrap w-full   mt-10   ">
                           {% for study in studys  %}
 
                           {% include 'studies/studies_card.html' with i=price %}
@@ -188,4 +206,4 @@
     </div>
 </main>
 
-{% endblock content %}      
+{% endblock content %}

@@ -32,7 +32,7 @@
           top: 0;
           right: -20px;
           transition: 0.5s;
-        }
+        }   
         
         .button:hover span {
           padding-right: 25px;
@@ -42,16 +42,14 @@
           opacity: 1;
           right: 0;
         }
-            @media (min-width:1500px) and (max-width:2200px) {
-           
-            }   
+          
         </style>
   
     
         
       
         
-        <button onclick="location.href='{% url 'studies:create' %}'" class="button py-14 px-10 text-center  border shadow-md relative rounded-full" style="vertical-align:middle;  font-size:20px;"><span>스터디만들기 </span></button>
+        <button onclick="location.href='{% url 'studies:create' %}'" class="button py-14 px-10 text-center  border shadow-md  rounded-full" style="vertical-align:middle;  font-size:20px;"><span>스터디만들기 </span></button>
         
 
 
@@ -65,9 +63,9 @@
                 <input id="search" type="search" class=" w-96 font-light border-gray-300 rounded-md mr-3 px-7 py-2 border mb-2" placeholder="찾으시는 스터디를 검색해보세요!">
                 </input>
             </div>
-            <form method="GET">
+          
                 
-                <div id="square"  style="height:200px; z-index: 99999; " class="flex flex-wrap py-1 shadow-md rounded-md border ">
+                <div id="square"  style="height: 200px;  z-index: 99999; " class="flex flex-wrap py-1 shadow-md rounded-md border ">
 
                  
                     {% for name in list %}
@@ -92,42 +90,33 @@
                     <br>
                     
                     <style>
-                        @media (min-width:1600px) and (max-width:2200px) {
+                        @media (min-width:1700px) and (max-width:2200px) {
                             #genre {
                               
-                            margin-left:200px; 
+                            margin-left:60px; 
                                     }
                             }
                             #filter {
-                                margin-left:180px;
+                                margin-left:380px;
                             }
                             #filter_a {
-                                margin-left:140px;
+                                 margin-left: 350px;
                             }
-                        @media (min-width:1000px) and (max-width:1600px) {
-                            #genre {
-                            
-                            top:330px; 
-                            left: 440px;
-                                    }
-                            
-                            #filter {
-                               
-                                height: 36px;
-                                width: 80px;
-                                top:330px; 
-                                left: 860px;
-                            }
-                            #filter_a {
-                                height: 36px;
-                                width: 80px;
-                                height: 36px;
-                                width: 80px;
-                                top:330px; 
+                            .button {
+                                
+                                top:500px; 
                                 left: 1000px;
-                          
+                                }
+                        
+                        @media (min-width:800px) and (max-width:1700px) {
+                            
+                            #section {
                                 
                             }
+                            #genre {
+                       
+                                    }    
+                        
                          
                             #web {
                             width: 200px;
@@ -141,17 +130,38 @@
                             #game{
                                 width: 200px;
                             }
-                       
-                      
+                            #filter {
+                               
+                               width: 200px;
+
+                             
+                          
+                           }
+                            #divv {
+                           top: 100px;
+                                    }    
+                           #filter_a {
+                              
+                               width: 200px;
+                               
+                        
+                               right: 340px; 
+                               position: relative;
+
+                           }
                             .button {
-            
-                                top:900px; 
-                                margin-left: 700px;
+                                position: relative; 
+                                top:600px; 
+                                left: 1300px;
                                 }
                            
                         }
-                        @media (min-width:500px) {
-                         
+                        @media (max-width:600px) {
+                            #genre {
+                            
+                            top:330px; 
+                            
+                                    }    
                         }
                     </style>
 
@@ -159,40 +169,50 @@
                    
 
                    
-                    <div class="w-full items-end justify-end  ml-32 flex ">
+                    <div id="section" class="w-full items-end justify-end  ml-32 flex ">
                         <div class="card bg-white py-3 px-5 rounded-xl flex flex-col " style="margin-right: 500px;">
+                            <form method="POST">
+                            {% csrf_token %}
                             <div class="title text-xl font-medium"></div>
-                            <div class=" w-full py-3 " style="margin-left: 100px;">
-                                <div id="genre" class="space-x-2  flex flex-row    " style=" width: 300px;    ">
-                                    <button id=web name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                            <div id="divv" class=" w-full  " style="">
+                                
+                                <div id="genre" class="space-x-2  flex flex-row     " style=" width: 500px;    ">
+
+                                    
+                                    <div id="genre" class="space-x-2  flex flex-row    " style=" width: 300px;    ">
+                                    <button id="web" name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
                                         웹
                                     </button>
-                                    <button id=app name="language_categori" value="앱" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                                    <button id="app" name="language_categori" value="앱" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
                                         앱
                                     </button>
-                                    <button id=ai name="language_categori" value="인공지능" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                                    <button id="ai" name="language_categori" value="인공지능" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
                                         인공지능
                                     </button>
-                                    <button id=game name="language_categori" value="게임" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                                    <button id="game" name="language_categori" value="게임" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
                                         게임
                                     </button>
-
+                          
+                                </div>
+                                <div id="genre" class=" flex      " style=" width: 900px;    ">
+                                    <button id="filter" class="  text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                                        필터링
+                                    </button>
+                             
+                                
+                                    <button id="filter_a" class= "text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8   ">
+                                        초기화
+                                    </button>
+                                    
+                                </div>
                                   </div>
+                                  
                               
                             </div>
                         </div>
-                        
-                        
-                    
-                        <button id="filter" class="absolute text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32  mr-56">
-                            필터링
-                        </button>
                     </form>
-                    <form id="form" metgod="GET">
-                        <button id="filter_a" class= "absolute text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border w-32    ">
-                            초기화
-                        </button>
-                    </form>
+                        
+                   
                     
               
                     </div>
