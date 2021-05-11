@@ -5,7 +5,7 @@ from django.urls import reverse_lazy
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.messages.views import SuccessMessageMixin
 from open_source import models as Open_Source_models
-from django.views.generic import FormView, DetailView
+from django.views.generic import FormView, DetailView, UpdateView
 from studies.models import Study
 from doits.models import Doit
 from . import models
@@ -76,4 +76,26 @@ def ProfielView(request, pk):
     abc = Study.objects.filter(Room_Host = request.user)
     doit = Doit.objects.filter(user = request.user)
     return render(request, "users/user_detail.html", {"abc": abc,"doit": doit} )
+
+class UserUpdateView(UpdateView):
+    model = models.User
+    template_name = "users/user_update.html"
+    fields = (
+        "email",
+        "fav_pro_genre",
+        "major",
+        "grade",
+        "entered_eniac",
+        "name",
+        "profile_image"
+    )
+
+    def get_object(self, queryset=None):
+        User = super().get_object(queryset=queryset)
+        if User.pk != self.request.user.pk:
+            return Http404
+        else:
+            return User
+
+
 

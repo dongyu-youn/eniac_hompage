@@ -30,6 +30,11 @@ form {
     }
 }
 
+div{
+    div{
+    }
+}
+
 .btn {
     @apply text-center rounded-sm py-5 font-light text-lg w-full;
     &.btn--small {
@@ -39,7 +44,7 @@ form {
 
 div {
     input{
-        @apply w-full px-4 border;
+        @apply w-full px-4 border border-gray-400 rounded-lg;
     }
 }
 
@@ -52,8 +57,21 @@ select{
     @apply w-full border border-black;
 }
 
+form{
+    div{
+#id_name{
+        height:63px;
+        }
+    }
+}
 input {
     #leader {
         @apply bg-red-800;
+    }
+}
+
+div{
+    p{      
+        // width:350px;
     }
 }

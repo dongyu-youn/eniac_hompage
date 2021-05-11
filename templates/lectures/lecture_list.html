@@ -3,133 +3,143 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<meta name="viewport" content="width=device-width,initial-scale=1">
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&display=swap');  
   @media (max-width: 600px) {
   .title {
     font-size: 80px;
+    }
   }
-}
 
 </style>
 <script src="https://kit.fontawesome.com/c5b23f21cd.js" crossorigin="anonymous"></script>
 
 
-<div class="fixed">
-    <style>
-        .button {
-          display: inline-block;
-          border-radius: 4px;
-          background-color: #D8D8D8;
-          border: none;
-          color: black;
-          text-align: center;
-          font-size: 28px;
-          padding: 20px;
-          width: 200px;
-          transition: all 0.5s;
-          cursor: pointer;
-          margin: 5px;
-        }
-        
-        .button span {
-          cursor: pointer;
-          display: inline-block;
-          position: relative;
-          transition: 0.5s;
-        }
-        
-        .button span:after {
-          content: '\00bb';
-          position: absolute;
-          opacity: 0;
-          top: 0;
-          right: -20px;
-          transition: 0.5s;
-        }
-        
-        .button:hover span {
-          padding-right: 25px;
-        }
-        
-        .button:hover span:after {
-          opacity: 1;
-          right: 0;
-        }
-        @media (min-width:1600px) and (max-width:2200px) {
-        .button {
-            top: 800px; 
-            left:1800px; 
-                }
-        }
-        #cate{
-                        margin-top: 60px;
-                    }
-                    #font_b{
-                        font-size: 20px;
-                    }
-                    #font_a{
-                        font-size: 27px;
-                    }
-        @media (min-width:1200px) and (max-width:1600px) {
-                    .button {
-                         
-                        top: 600px; 
-                        left:1300px; 
-                            }
-                    } 
-                    #cate{
-                        margin-top: 60px;
-                    }
-                    #font_b{
-                        font-size: 20px;
-                    }
-                    #font_a{
-                        font-size: 37px;
-                    }
+<style>
+  .button {
+    display: inline-block;
+    border-radius: 4px;
+    background-color: #D8D8D8;
+    border: none;
+    color: black;
+    text-align: center;
+    font-size: 28px;
+    padding: 20px;
+    width: 200px;
+    transition: all 0.5s;
+    cursor: pointer;
+    margin: 5px;
+  }
 
+  .button span {
+    cursor: pointer;
+    display: inline-block;
+    position: relative;
+    transition: 0.5s;
+  }
 
-         @media (max-width:500px) {
-                    #lec_button {
-                        margin-left: 300px;
-                        top: 320px;
-                        width: 170px;
-                      
-                    }
-                    #cate{
-                        margin-top: 10px;
-                    }
-                    #mi{
-                        margin-top: 10px;
-                        margin-bottom: 30px;
-                    }
-                    #warn{
-                        margin-top: 150px;
-                        width: 450px;
-                    }
-                    #font_b{
-                        font-size: 13px;
-                    }
-                    #font_a{
-                        font-size: 20px;
-                    }
-                    #title{
-                        font-size: 15px;
-                    }
-                
-                    } 
-        </style>
+  .button span:after {
+    content: '\00bb';
+    position: absolute;
+    opacity: 0;
+    top: 0;
+    right: -20px;
+    transition: 0.5s;
+  }
+
+  .button:hover span {
+    padding-right: 25px;
+  }
+
+  .button:hover span:after {
+    opacity: 1;
+    right: 0;
+  }
+  @media (min-width:1800px) and (max-width:2200px) {
+  .button {
+      top: 800px; 
+      left:1800px; 
+          }
+  }
+  #cate{
+      margin-top: 60px;
+  }
+  #font_b{
+      font-size: 20px;
+  }
+  #font_a{
+      font-size: 27px;
+  }
+  @media (min-width:1600px) and (max-width:1800px) {
+    .button {
+        top: 00px; 
+        left:1400px; 
+    } 
+    #cate{
+        margin-top: 60px;
+    }
+    #font_b{
+        font-size: 20px;
+    }
+    #font_a{
+        font-size: 37px;
+    }
+  }
+  @media (min-width:1400px) and (max-width:1600px) {
+    .button {
+        top: 00px; 
+        left:1100px; 
+    } 
+  }
+  @media (min-width:1000px) and (max-width:1400px) {
+    .button {
+        top: 125px; 
+        left:980px; 
+    } 
+  }
+  @media (min-width:500px) and (max-width:1000px) {
+    .button {
+        top: 700px; 
+        left:20px; 
+    } 
+  }
+
+  @media (max-width:500px) {
+  #lec_button {
+      margin-left: 300px;
+      top: 320px;
+      width: 170px;
+    
+  }
+  #cate{
+      margin-top: 10px;
+  }
+  #mi{
+      margin-top: 10px;
+      margin-bottom: 30px;
+  }
+  #warn{
+      margin-top: 150px;
+      width: 450px;
+  }
+  #font_b{
+      font-size: 13px;
+  }
+  #font_a{
+      font-size: 20px;
+  }
+  #title{
+      font-size: 15px;
+  }
+
+  } 
+</style>
   
     
         
       
-        
-        <button id="lec_button" onclick="location.href='{% url 'lecture:create' %}'" class="button py-14 px-10 text-center  border  relative rounded-full" style="vertical-align:middle; font-size:20px; z-index: -99999;"><span>강의추가하기 </span></button>
-        
-
-
-
+<div class="fixed">  
+  <button id="lec_button" onclick="location.href='{% url 'lecture:create' %}'" style="-vertical-align:middle; font-size:20px;" class="button py-14 px-10 text-center  border  relative rounded-full"><span>강의추가하기 </span></button>
 </div>
 <div class="abc mt-8 flex justify-center">
     
@@ -221,7 +231,6 @@
 
         
       </div>
-
 
 
 </html>

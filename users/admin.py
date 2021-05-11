@@ -12,7 +12,7 @@ class UserAdmin(UserAdmin):
             "fields": (
                 "email",
                 "fav_pro_genre",
-                "nickname",
+                "name",
                 "major",
                 "grade",
                 "entered_eniac",

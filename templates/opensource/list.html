@@ -52,6 +52,7 @@
     {% endfor %}
         {% for OpenSource in opensources %}
     {% if not OpenSource.error_signal %}
+
             <div style=" height:420px; width:322px;" class="bg-yellow-50 border mt-10 ml-3 text-center shadow-xl transition duration-500 ease-in-out transform hover:-translate-y-1 hover:scale-110">
             <a href="{% url "opensource:detail" OpenSource.pk %}" class="">
                 <div style="overflow:hidden; word-wrap:break-word;" class="{% if OpenSource.error_signal %}bg-pink-100 {% endif %}py-7 px-8 width-full h-3/4 {% if OpenSource.error_signal %}bg-pink-50{% endif %} border border-yellow-200">
@@ -74,9 +75,7 @@
         {% endif %}
         {% endfor %}
 
-        </div>
     </div>
-    
 </div>
 
 

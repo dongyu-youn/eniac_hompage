@@ -24,7 +24,6 @@
 <script src="https://cdn.jsdelivr.net/gh/alpinejs/alpine@v2.x.x/dist/alpine.min.js" defer></script>
 
 
-
 <div class="bg-gray-100">
  <div class="w-full text-white bg-main-color">
        
@@ -99,6 +98,7 @@
                             </svg>
                         </span>
                         <span class="tracking-wide">About</span>
+                        <a class="rounded-xl px-2 py-1 bg-pink-500 text-white"href="{% url 'users:update' user.pk %}">Edit</a>
                     </div>
                     <div class="text-gray-700">
                         <div class="grid md:grid-cols-2 text-sm">

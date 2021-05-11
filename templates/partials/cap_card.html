@@ -1,16 +1,33 @@
-
-<div style="" class="bg-white flex justify-center mb-72">
-    <div style="width:450px; height:1000px;" class="bg-white mt-10 rounded-xl border-l border-b border-t">
+{% load static %}
+<style>
+    @media (max-width:884px){
+        .intro{
+            flex-direction: column;
+            margin: 0;
+        }
+        .intro_item{
+            
+        }
+        .item1{
+            margin:0;
+        }
+        .item2{
+            margin:0;
+        }
+    }
+</style>
+<div style="" class="intro bg-white flex justify-center mb-72">
+    <div style="width:450px;" class="intro_item bg-white mt-10 rounded-xl border-l border-b border-t">
         <div class="ml-8 mt-10 font-serif font-black" style=" font-size:50px; color:black;">
             임원진 소개
         </div>
-        <div style="font-size:17px width:370px; " class="text-gray-600 mt-3 ml-8">
+        <div style="font-size:17px; width:370px; " class="text-gray-600 mt-3 ml-8">
          31기 에니악 임원진입니다!
         </div>
     </div>
-    <div style="width:850px; height:2000px;" class="mt-10 bg-white">
+    <div style="width:850px; height:2000px;" class="item2 mt-10 bg-white">
         <div class="w-full flex flex-wrap rounded-xl border-r border-b border-t">
-            <div style="width:402px; height:570px;" class="mt-10"  >
+            <div style="width:402px; height:570px;" class="item1 mt-10"  >
                 
                 <div style="width:380px; height:270px;" class=" rounded-xl border">
                 </div>
@@ -31,7 +48,7 @@
             </div>
             <div style="width:402px; height:570px; margin-left: 20px;" class="mt-10"  >
                 
-                <div style="width:380px; height:270px;" class=" rounded-xl border">
+                <div style="background-image: url({% static 'img/daehyun.png' %}); background-size:cover; background-position: center;  width:380px; height:270px;" class=" rounded-xl border">
                 </div>
                 <div style="font-size:17px " class="text-gray-900 px-1 mt-4">
                     윤대현
@@ -48,9 +65,9 @@
                     Tel. 010-2144-3317
                 </div>
             </div>
-            <div style="width:402px; height:600px;" class=""  >
+            <div style=" width:402px; height:600px;" class=""  >
                 
-                <div style="width:380px; height:270px;" class=" rounded-xl border">
+                <div style="background-image: url({% static 'img/bak.png' %}); background-size:cover; background-position: center;  width:380px; height:270px;" class=" rounded-xl border">
                 </div>
                 <div style="font-size:17px " class="text-gray-900 px-1 mt-4">
                     박승우
@@ -68,7 +85,7 @@
            
             <div style="width:402px; height:600px; margin-left: 20px;" class=""  >
                 
-                <div style="width:380px; height:270px;" class=" rounded-xl border">
+                <div style="background-image: url({% static 'img/sihyun.jpg' %}); background-size:cover; background-position: center; width:380px; height:270px;" class=" rounded-xl border">
                 </div>
                 <div style="font-size:17px " class="text-gray-900 px-1 mt-4">
                     이시현
@@ -88,3 +105,4 @@
         </div>
     </div>
 </div>
+

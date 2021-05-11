@@ -37,9 +37,15 @@
       right:32px;
       font-size:24px;
       color: #d49466;
-    }
+  }
+ 
+  @media (min-width: 1000px){
+    #menu {
+   
+    } 
+  }
 
-  @media screen and (max-width: 1200px){
+  @media (max-width: 1000px){
     .navbar{
       flex-direction: column;
       align-items:flex-start;
@@ -49,12 +55,14 @@
       display:none;
       flex-direction: column;
       align-items:center;
+      
       width:100%;
     }
 
     .navbar__menu li{
       width: 100%;
       text-align: center;
+
     }
     .navbar__items{
       width:80%;
@@ -79,6 +87,9 @@
       display: flex;
       width: 200px;
     }
+    #menu {
+    margin-left:230px;
+    } 
   }
 </style> 
 </head>
@@ -89,7 +100,7 @@
       <img class="rounded-full h-20 w-20  p-2" src="{% static 'img/eniac.png' %}" />
       <a class="font-black text-3xl text-white" href="{% url "core:price" %}">Eniac</a>
     </div>
-    <div style="list-style:none; padding-left:0;" class="navbar__menu flex">
+    <div id="menu" style="list-style:none;  " class="navbar__menu flex">
         <style>
             .dropbtn {
            
@@ -167,10 +178,10 @@
       <li class="mt-2" style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black" href="{% url "opensource:list"  %}">Q&A</a></li>
     </div>
   </div>
-  <div class="navbar__login">
+  <div class="navbar__login" style="margin-left:360px; ">
   {% include "partials/header.html" %}
   </div>
-  <a href="#" class="navbar__toogleBtn">☰</a>
+  <a href="#" class="navbar__toogleBtn px-10 py-5">☰</a>
 </nav>
 
 
