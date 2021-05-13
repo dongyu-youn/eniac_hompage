@@ -43,6 +43,9 @@
     #menu {
    
     } 
+    #log {
+        width: 200px; 
+    }
   }
 
   @media (max-width: 1000px){
@@ -90,6 +93,9 @@
     #menu {
     margin-left:230px;
     } 
+    #log {
+        width: 400px; 
+    }
   }
 </style> 
 </head>
@@ -158,7 +164,7 @@
               <a target="_blank" href="https://drive.google.com/drive/folders/1qWssqTPcA6OdxF-qxuIzFq16TFGBfDAY">족보</a>
               </div>
             </div>
-      <li class="mt-2 " style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black " href=" {% url "core:doit" %}">개발작품써보기</a>
+      <li class="mt-2 " style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black text-white " href=" {% url "core:doit" %}">개발작품써보기</a>
         
     </li>
      <!-- <p class="mt-2 font-bold text-3xl m-16 relative w-max two">
@@ -169,13 +175,13 @@
    
 
         <li class="mt-2  " style=" padding: 8px 35px;">
-        <a class="hover: border-b-2 hover:border-yellow-400 border-black h-full items-center" href="{% url "lecture:list" %}">추천코딩강의</a>
+        <a class="hover: border-b-2 hover:border-yellow-400 border-black h-full items-center text-white" href="{% url "lecture:list" %}">추천코딩강의</a>
     
     </li>  
    
     
-      <li class="mt-2" style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black" href="{% url "studies:list"  %}">스터디/팀구성</a></li>
-      <li class="mt-2" style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black" href="{% url "opensource:list"  %}">Q&A</a></li>
+      <li class="mt-2" style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black text-white" href="{% url "studies:list"  %}">스터디/팀구성</a></li>
+      <li class="mt-2" style=" padding: 8px 35px;"><a class="hover: border-b-2 hover:border-yellow-400 border-black text-white" href="{% url "opensource:list"  %}">Q&A</a></li>
     </div>
   </div>
   <div class="navbar__login" style="margin-left:360px; ">
