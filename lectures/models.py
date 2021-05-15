@@ -32,10 +32,9 @@ class Lecture(core_models.TimeStampedModel):
     title = models.CharField(max_length=120) 
     person = models.CharField(max_length=20)
     image = models.ImageField()
-    category = models.CharField(
-        max_length=20, choices=GENRE_CHOICES)
+    category = models.CharField(max_length=20, choices=GENRE_CHOICES)
     user = models.ForeignKey("users.User", on_delete=models.CASCADE, null=True, blank=True)
-    link = models.URLField(max_length=70, default="1")
+    link = models.URLField(max_length=70, )
 
     def __str__(self):
       return self.title  

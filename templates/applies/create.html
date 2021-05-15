@@ -1,0 +1,67 @@
+{% extends 'base.html' %}
+
+{% block content%}
+
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Gothic+A1:wght@600&display=swap');  }
+    @media (max-width: 600px) {
+    .title {
+      font-size: 80px;
+    }
+  }
+
+  input#id_motivate {
+    height:90px;
+    border-radius:10px;
+    border-color: #A4A4A4;
+    font-family: 'Nanum Gothic', sans-serif;
+    font-size:19px;
+    color: #585858;
+    vertical-align: middle;
+  }
+  input#id_introduce {
+        height:90px;
+        border-radius:10px;
+        border-color: #A4A4A4;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size:19px;
+        color: #585858;
+        vertical-align: middle;
+  }
+  textarea#id_resolution {
+        height:50px;
+        border-radius:10px;
+        border-color: #A4A4A4;
+        font-family: 'Nanum Gothic', sans-serif;
+        font-size:19px;
+        color: #585858;
+        vertical-align: middle; 
+  }
+
+  </style>
+
+<div class="abc mt-28 flex justify-center">
+  <div class="text-center">
+    <div class="title" style="font-family: 'Gothic A1', sans-serif; font-size:37px;" class="text-black font-bold">
+        Apply Study
+    </div>
+    <div style="font-family: 'Gothic A1', sans-serif; font-size:20px; font-weight:500;" class="font-bold text-gray-400 mt-6">
+        간단 명료하게 적는게 핵심이에요!
+    </div>
+  </div>
+</div>
+
+<div class=" container lg:w-5/12 md:w-1/2 xl:w-4/12 mx-auto  flex flex-col items-center  p-6    ">
+<form enctype="multipart/form-data" method="POST" class="w-full" >
+    {% csrf_token %}
+  <div style="border-color:#D8D8D8;" class="text-left rounded-sm py-4 border px-6 font-light focus:outline-none text-lg w-full ">
+    <div class="mt-4">
+    </div>
+    {{form.as_table}}
+    <button style="background-color:#FF4000; width:467px;" class="py-5 mt-4 text-center text-white rounded-sm py-3 font-light text-lg ">Apply</button>
+  </div>
+</form>  
+<!-- </div> -->
+
+
+{% endblock content%}

@@ -6,9 +6,10 @@ class CreateLView(forms.ModelForm):
         model = models.Lecture
         fields = (
             "title",
+            "category",
+            "link",
             "person",
             "image",
-            "category",
         )
 
         # widgets = {

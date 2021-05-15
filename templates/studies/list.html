@@ -71,8 +71,8 @@
              
                 .button {
                     position:relative;
-                    margin-top: 400px;
-                    left: 1800px;
+                    margin-top: 600px;
+                    left: 1400px;
                     }
                 
               
@@ -169,7 +169,7 @@
                }
                 .button {
                     position: relative; 
-                    top:250px; 
+                    margin-top: 600px;
                     left: 1300px;
                     }
                
@@ -305,7 +305,7 @@
              
              <div id="genre" class="space-x-2  flex flex-row  w-full    " style="margin-left: 300px; ">                    
                  <div id="genre_a" class="space-x-2  flex flex-row    " style=" width: 300px;    ">
-                 <button id="web" name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
+                 <button id="web"   name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
                      웹
                  </button>
                  <button id="app" name="language_categori" value="앱" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
@@ -382,15 +382,15 @@
                             {% if study.Deadline %}
                             <a href="{% url 'studies:detail' study.pk %}" style="width:49%;" class="flex flex-wrap bg-green-50 items-center mt-6 h-32 border-green-200 border-8 shadow rounded-md border duration-200 hover:shadow-lg">
                                 <div class="w-full">
-                                    {{study.Title_Intro}}
+                                    {{study.Study_Name}}
                                 </div>
                                 <div class="w-full flex">
                                     <div class="flex w-1/2 text-left ml-6 text-gray-500">
                                         <span class="font-bold border rounded-lg bg-green-300">
-                                            #Deadline:
+                                            #Activate:
                                         </span>
                                         <span>
-                                            &nbsp;{{Study.Deadline_Date}}
+                                            &nbsp;On
                                         </span>
                                     </div>
                                     <div class="w-1/2 text-right mr-4">
@@ -408,10 +408,10 @@
                                     <div class="w-full flex">
                                         <div class="flex w-1/2 text-left ml-6 text-gray-500">
                                             <span class="border rounded-lg bg-gray-200">
-                                                #Deadline:
+                                                #Activate:
                                             </span>
                                             <span>
-                                                &nbsp;{{study.Deadline_Date}}
+                                                &nbsp;Off
                                             </span>
                                         </div>
                                         <div class="w-1/2 text-right mr-4">
@@ -426,11 +426,7 @@
                         </div>
                     </div>
                 </div>
-                <!-- <div class="fixed">
-                    <a href="{% url 'studies:create' %}" style="right:200px; top:200px; left:700px; font-size:20px;" class="py-14 px-10 text-center hover:bg-blue-50 border-gray-50 border shadow-md relative text-gray-700 rounded-full">
-                        create
-                    </a>
-                </div> -->
+             
             </div> 
 
 

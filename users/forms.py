@@ -33,7 +33,7 @@ class SignUpForm(forms.Form):
     fav_pro_genre = forms.ChoiceField(choices=models.User._meta.get_field('fav_pro_genre').choices)
    
     major = forms.CharField(max_length=20, widget=forms.TextInput(attrs={'placeholder': '학과를 입력해주세요'}))
-    entered_eniac = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '에니악 기수를 입력해주세요(2021년도 -> 31기)'}))
+    entered_eniac = forms.CharField(widget=forms.TextInput(attrs={'placeholder': '에니악 기수를 입력해주세요(2021년도 -> 32기)'}))
     
     profile_image = forms.ImageField()
     aniac_code = forms.CharField(widget=forms.PasswordInput(attrs={'placeholder': '에니악코드 4자리를 입력해주세요'}))

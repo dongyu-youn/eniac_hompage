@@ -42,7 +42,7 @@ class SignUpView(FormView):
         password = form.cleaned_data.get("password")
         user = authenticate(self.request, username=email, password=password)
         Open_Source_models.OpenSource.objects.create(OpenSource_host=user)
-        print(user)
+        # print(user)
 
         if user is not None:
             login(self.request, user)

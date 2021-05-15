@@ -55,6 +55,16 @@ def studydetail(request, pk):
     study = models.Study.objects.get(pk=pk)
     host_inf = User.objects.get(username=study.Room_Host)
     room_members = study.Room_Member.all()
+    print(request.POST.get('Recruitment_off'))
+    if(request.POST.get('Recruitment_off')=="off"):
+        study.Deadline = False
+        study.save()
+        print(1)
+        print(study.Deadline)
+    if(request.POST.get('Recruitment_on')=="on"):
+        study.Deadline = True
+        study.save()
+        print(2)
 
     return render(request, "studies/study_detail.html",
                 {
@@ -96,6 +106,8 @@ class StudyCreateView(CreateView):
     def form_valid(self, form):
         study=form.save(commit=False)
         study.Room_Host = self.request.user
+        study.Deadline = True
+        study.Leader = self.request.user.name
         study.save()
 
 

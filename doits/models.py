@@ -54,20 +54,32 @@ class Doit(core_models.TimeStampedModel):
   Etc = "Etc"
 
   CATEGORY_CHOICES = (
-      (Web, "Web"),
-      (Ai, "Ai"),
-      (Game, "Game"),
-      (App, "app"),
-      (Etc, "Etc")
+      (Ai, "AI"),
+      (App, "APP"),
+      (Web, "WEB"),
+      (Game, "GAME"),
+      (Etc, "ETC")
   )
 
   LANGUAGE_CHOICES = (
+      (C, "C"),
+      (Java, "Java"),
+      (Python, "Python"),
+      (C_, "C#"),
+      (C__, "C++"),
+      (JavaScript, "JavaScript"),
+      (React, "React"),
+      (TypeScript, "TypeScript"),
+      (PHP, "PHP"),
+      (Kotlin, "Kotlin"),
+      (Node_js, "Node.js"),
+      (Swift, "Swift"),
+      (Assembly_language, "Assembly_Language"),
       (Bloop, "Bloop"),
       (BrainF, "BrainF"),
       (QBasic, "QBasic"),
       (Erlang, "Erlang"),
       (Next_js, "Next.js"),
-      (TypeScript, "TypeScript"),
       (Dart, "Dart"),
       (Crystal, "Crystal"),
       (Lua, "Lua"),
@@ -75,24 +87,12 @@ class Doit(core_models.TimeStampedModel):
       (Clojure, "Clojure"),
       (Haskell, "Haskell"),
       (F_, "F#"),
-      (React, "React"),
-      (Kotlin, "Kotlin"),
       (Rust, "Rust"),
-      (Node_js, "Node.js"),
       (Objective_c, "Objective-C"),
-      (Assembly_language, "Assembly_Language"),
       (Ruby, "Ruby"),
-      (Swift, "Swift"),
       (Go, "Go"),
       (SQL, "SQL"),
       (R, "R"),
-      (PHP, "PHP"),
-      (JavaScript, "JavaScript"),
-      (C_, "C#"),
-      (C__, "C++"),
-      (Java, "Java"),
-      (Python, "Python"),
-      (C, "C"),
   )
 
 

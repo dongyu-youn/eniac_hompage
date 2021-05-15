@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block content %}
+
+<div class="mt-32 flex justify-center">    
+    <div class="border" style="width:700px; height:300px;">
+        <div style="display:flex; width:700px;height:30px;">
+            {% for apply in applies %}
+            <form method = "POST">
+            {% csrf_token %}
+            <div style="display:flex; width:700;">
+                <div style="width:100px; border:1px solid black;">
+                    {{apply.name}}
+                </div>
+                <div style="width:200px; border:1px solid black;">
+                    {{apply.motivate}}
+                </div>
+                <div style="width:200px;  border:1px solid black;">
+                    {{apply.resolution}}
+                </div>
+                <button name="allow" value="{{apply.apply_user}}" style="width:100px; ">
+                    수락
+                </button>
+                <button name="reject" value="{{apply.apply_user}}" style="width:100px; ">
+                    거절
+                </button>
+            </div>
+            </form>
+            {% endfor %}
+        </div>
+    </div>
+</div>
+{% endblock %}

@@ -61,6 +61,44 @@
                         <a>
                     </div>
                 {% endif %}
+                {% if study.Room_Host == user %}
+                    <div class="flex justify-center ml-5 ">
+                        <a href="{% url "applies:list" study.pk %}">
+                            <button style="width:312px" class="border mt-2 h-10 font-light text-white border-blue-500 bg-red-500 rounded-lg ">
+                                신청 현황
+                            </button>
+                        <a>
+                    </div>
+                {% endif %}
+                {% if study.Room_Host != user %}
+                    <div class="flex justify-center ml-5 ">
+                        <a href="{% url "applies:create" study.pk %}">
+                            <button style="width:312px" class="border mt-2 h-10 font-light text-white border-blue-500 bg-red-600 rounded-lg ">
+                                Apply
+                            </button>
+                        </a>
+                    </div>
+                {% endif %}
+                {% if study.Deadline and study.Room_Host == user %}
+                <form method = "POST">
+                {% csrf_token %}      
+                <div class="flex justify-center ml-5 ">
+                    <button name="Recruitment_off" style="width:312px" value="off" class="border mt-2 h-10 font-light text-white border-blue-500 bg-red-600 rounded-lg ">
+                        모집 종료
+                    </button>
+                </div>
+                </form>
+                {% endif %}
+                {% if study.Deadline == False and study.Room_Host == user %}
+                <form method = "POST">
+                {% csrf_token %}      
+                <div class="flex justify-center ml-5 ">
+                    <button name="Recruitment_on" style="width:312px" value="on" class="border mt-2 h-10 font-light text-white border-blue-500 bg-red-600 rounded-lg ">
+                        모집 재개
+                    </button>
+                </div>
+                </form>
+                {% endif %}
                 <div class="flex justify-center ml-5 ">
                     
                 </div>

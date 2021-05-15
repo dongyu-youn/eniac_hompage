@@ -46,7 +46,7 @@ class Study(core_models.TimeStampedModel):
     Title_Intro = models.TextField(null=True, blank=True)
     Introduce = models.TextField(null=True, blank=True)
     Learning_Cycle = models.CharField(max_length=70, null=True, blank=True)
-    Deadline_Date = models.DateField(blank=True, null=True)
+    # Deadline_Date = models.DateField(blank=True, null=True)
     Room_Host = models.ForeignKey("users.User", on_delete = models.CASCADE)
     Room_Member = models.ManyToManyField("users.User", related_name="member" )
     Image = models.ImageField()
@@ -59,7 +59,12 @@ class Study(core_models.TimeStampedModel):
             return "/static/images/user.jpg"
 
     def get_absolute_url(self):
-        return reverse("studies:detail", kwargs={"pk": self.pk})
+        return reverse("studies:detail")
 
     def __str__(self):
         return self.Leader  
+
+    def get_absolute_url(self):
+        return reverse("studies:detail", kwargs={"pk": self.pk})
+
+
