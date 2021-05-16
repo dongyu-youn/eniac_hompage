@@ -16,6 +16,7 @@ class UserAdmin(UserAdmin):
                 "major",
                 "grade",
                 "entered_eniac",
+                "profile_image",
                 
             )
         },

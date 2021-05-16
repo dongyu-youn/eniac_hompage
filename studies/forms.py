@@ -14,7 +14,7 @@ class StudyModelForm(forms.ModelForm):
             # "Deadline_Date",
             "Introduce",
 
-            # "Image",
+            "Image",
         )
 
         widgets = {

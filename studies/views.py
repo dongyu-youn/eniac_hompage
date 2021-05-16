@@ -65,6 +65,7 @@ def studydetail(request, pk):
         study.Deadline = True
         study.save()
         print(2)
+    print(room_members)
 
     return render(request, "studies/study_detail.html",
                 {

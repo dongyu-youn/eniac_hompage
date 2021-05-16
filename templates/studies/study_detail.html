@@ -9,9 +9,9 @@
                     <div class="w-full h-8/12 flex justify-center">
                         <div class="font-semibold  border-b h-full w-10/12">
                             <div class="mt-6 flex justify-center">
-                                <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
-                                    {{ study.Leader |slice:"0:1" }}
-                                </div>
+                                <img style="background-image: url({{study.Room_Host.profile_image.url}}); background-size:cover; background-position: center; line-height:115px; font-size:53px; border: 1px solid black;" class="text-center border-black rounded-full w-32 h-32">
+                                    
+                                </img>
                             </div>
                             <div class="mt-5 flex">
                                 <div class="text-3xl">
@@ -145,16 +145,16 @@
                             <div class="flex justify-center">
                                 <div class="font-semibold border-section  h-full w-10/12">
                                     <div class="mt-6 flex justify-center">
-                                        <div style="line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
-                                            {{room_member.username |slice:"0:1" }}
-                                        </div>
+                                        <img style="background-image: url({{room_member.profile_image.url}}); background-size:cover; background-position: center;  border: 1px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                                            
+                                        </img>
                                     </div>
                                     <div class="mt-5 flex">
                                         <div class="text-3xl">
                                             ✪
                                         </div>
                                         <div class="ml-2 mt-2">
-                                            자바학습 스터디 팀원
+                                            {{study.Study_Name}} 팀원
                                         </div>
                                     </div>
                                     <div class="mt-5 mb-12 flex">

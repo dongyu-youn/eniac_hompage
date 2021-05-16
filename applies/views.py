@@ -24,7 +24,13 @@ class CreateApplyView(CreateView):
 def applieslist(request, pk):
     study = studies_models.Study.objects.get(pk = pk)
     applies = models.Apply.objects.filter(apply_room = study)
-    study.Room_Member.add(users_models.User.objects.get(email = request.POST.get("allow")))
+    # print(request.POST.get("allow"))
+    # print(users_models.User.objects.get(email = request.POST.get("allow")))
+    if(request.POST.get('allow')):
+        study.Room_Member.add(users_models.User.objects.get(email = request.POST.get("allow")))
+        apply = models.Apply.objects.get(apply_user = users_models.User.objects.get(email = request.POST.get("allow")))
+        apply.delete()
+    applies = models.Apply.objects.filter(apply_room = study)
     return render(request, "applies/list.html",{
         "applies": applies,
         "study": study,
