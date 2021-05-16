@@ -9,7 +9,9 @@
     <title>Document</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap');
-  
+  a{
+    color:white;
+  }
   body{
     font-family: 'Noto Sans KR', sans-serif;
   }
@@ -37,9 +39,9 @@
       color: #d49466;
   }
  
-  @media (min-width:1200px) and (max-width:1600px){
+  @media (min-width: 1000px){
     #menu {
-        width:2000px;
+   
     } 
     #log {
         width: 200px; 
@@ -57,7 +59,7 @@
       flex-direction: column;
       align-items:center;
       
-      width:90%;
+      width:100%;
     }
 
     .navbar__menu li{
@@ -203,8 +205,6 @@
     
   })
 </script>
-<style>
-</style>
 {% block content %}
 {% endblock %}
 {% include "partials/footer.html" %}

@@ -23,16 +23,16 @@ class LanguageType(AbstractItem):
 
 Web = "Web"
 App = "App"
-machine_learning = "Machine_Learning"
+AI = "AI"
 game = "Game"
-etc = "Etc"
+major = "major"
 
 STUDY_GENRE_CHOICES = (
     ("Web", Web),
     ("App", App),
-    ("Machine_Learning", machine_learning),
+    ("AI", AI),
     ("Game", game),
-    ("Etc", etc),
+    ("major", major),
 )
 
 class Study(core_models.TimeStampedModel):

@@ -40,6 +40,9 @@ def studiesview(request):
             study = study.filter(study_genre="Machine_Learning")
         elif(language_categori=="게임"):
             study = study.filter(study_genre="Game")
+        elif(language_categori=="전공"):
+            study = study.filter(study_genre="major")    
+
     return render(request,"studies/list.html", 
         {"list":language_list,
         "studies": study,
