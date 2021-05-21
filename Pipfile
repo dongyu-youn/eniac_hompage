@@ -8,6 +8,7 @@ django = "==2.2.5"
 django-seed = "*"
 pillow = "*"
 django-debug-toolbar = "*"
+sentry-sdk = "*"
 
 [dev-packages]
 awsebcli = "*"
