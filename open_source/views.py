@@ -26,13 +26,13 @@ def detailview(request, pk):
         study = Study.objects.get(Room_Host=user)
         return render(request, "opensource/detail.html", {
             "study": study,
-            "user": user,
+            "users": user,
             "opensource": opensource,
             "reviews": reviews,
         })
     except:
         return render(request, "opensource/detail.html", {
-        "user": user,
+        "users": user,
         "opensource": opensource,
         "reviews": reviews,
     })

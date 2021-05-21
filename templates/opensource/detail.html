@@ -14,7 +14,7 @@
                 <div class="w-full h-8/12 flex justify-center">
                     <div class="font-semibold  border-b h-full w-10/12">
                         <div class="mt-6 flex justify-center">
-                            <div style="background-image: url({{user.profile_image.url}}); background-size:cover; background-position: center; line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
+                            <div style="background-image: url({{users.profile_image.url}}); background-size:cover; background-position: center; line-height:115px; font-size:53px; border:5.5px solid black; " class="text-center border-black rounded-full w-32 h-32">
                                 
                             </div>
                         </div>
@@ -35,7 +35,7 @@
                                 ✽
                             </div>
                             <div class="ml-2 mt-2">
-                                애니악 {{ user.entered_eniac }} 기
+                                애니악 {{ users.entered_eniac }} 기
                             </div>
                         </div>
                     </div>
@@ -47,7 +47,7 @@
                                 ✪
                             </div>
                             <div class="ml-2 mt-2">
-                                {{user.grade}}
+                                {{users.grade}}
                             </div>
                         </div>
                         <div class="mt-5 mb-12 flex">
@@ -55,7 +55,7 @@
                                 ✽
                             </div>
                             <div class="ml-2 mt-2">
-                                {{user.major}}
+                                {{users.major}}
                             </div>
                         </div>
                     </div>

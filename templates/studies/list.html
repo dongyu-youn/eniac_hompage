@@ -48,26 +48,22 @@
         
         </style>
         <style>
-            @media (min-width:1600px) and (max-width:2300px) {
+            @media (min-width:1700px) and (max-width:2300px) {
                 #butt {
-                    margin-right: 500px;
-                }
-
-                #square {
-                    overflow : scroll;
-                }
-                #genre {
-                    position: relative;
-                 
-                    width: 540px;
                    
                 }
 
+                #square {
+                  
+                }
                 #genre_a {
-                
-                
-                     }
-                
+                    position: relative;
+                 
+                    width: 1100px;
+                   
+                }
+
+               
              
                 .button {
                     position:relative;
@@ -79,7 +75,7 @@
             
              
                     #web {
-                    width: 200px;
+                        width: 200px;
                     }
                     #app{
                         width: 200px;
@@ -88,6 +84,9 @@
                         width: 200px;
                     }
                     #game{
+                        width: 200px;
+                    }
+                    #major{
                         width: 200px;
                     }
                     #filter {
@@ -106,23 +105,24 @@
                         position: relative;
 
                     }
+                     .nav {
+                display: none;
+                    } 
              
             
             }
-            @media (min-width:1000px) and (max-width:1600px) {
+            @media (min-width:1000px) and (max-width:1700px) {
                 #butt {
-                    margin-right: 500px;
+                   
                 }
                 
                 #square {
-                    overflow : scroll;
+              
                 }
-                #genre {
+                #genre_a {
                    
 
-                    position: relative;
-                    left: 100px;
-                    width: 600px;
+                   
                 
                 }
                 #genre_two {
@@ -142,6 +142,9 @@
                 #game{
                     width: 200px;
                 }
+                #major{
+                    width: 200px;
+                }
                 #filter {
                    
                    width: 200px;
@@ -149,7 +152,7 @@
                  
               
                }
-                  
+            
 
               #filter {
                     margin-left:280px;
@@ -172,22 +175,24 @@
                     margin-top: 600px;
                     left: 1300px;
                     }
+            .nav {
+                display: none;
+            } 
                
             }
             @media (min-width:200px) and (max-width:1000px)  {
                 #butt {
-                    margin-right: 500px;
+                  
                 }
                   
                 #square {
-                    overflow : scroll;
+           
                 }
-                #genre {
+                #genre_a {
                    
 
                     position: relative;
-                    left: 100px;
-                    width: 270px;
+                   
                     
                 }
                 #genre_two {
@@ -197,20 +202,20 @@
             
              
                 #web {
-                width: 50px;
+                width: 100px;
                 }
                 #app{
-                    width: 50px;
+                    width: 100px;
                 }
                 #ai{
-                    width: 50px;
+                    width: 100px;
                 }
                 #game{
-                    width: 50px;
+                    width: 100px;
                 }
                 #filter {
                    
-                   width: 50px;
+                   width: 100px;
 
                  
               
@@ -238,13 +243,15 @@
                     top: 800px;
                     left: 750px;
                     }
-                 
+               .nav {
+                display: none;
+                }    
               
                }
                   
 
      
-            }
+            
         
         </style>
     
@@ -252,105 +259,274 @@
         690부터 name밑으로 삐져나옴 따라서 옆으로 스크롤  -->
       
         
-        <button onclick="location.href='{% url 'studies:create' %}'" class="button py-14 px-10 text-center  border shadow-md  rounded-full" style="vertical-align:middle;  font-size:20px;"><span>스터디만들기 </span></button>
+        <button onclick="location.href='{% url 'studies:create' %}'" class=" button py-14 px-10 text-center  border shadow-md  rounded-full" style="vertical-align:middle;  font-size:20px;"><span>스터디만들기 </span></button>
         
 
 
 
 </div>
-    <div class=" container  mx-auto bg-gray-800 w-7/12 h-25vh  bg-center bg-cover" style="border-radius:15px; background-image:url(https://blog.kakaocdn.net/dn/bgwWMX/btqFvfdvgBL/OdGT0yAhdQlYcm7mWLcuT1/img.jpg)">
-    </div>
-    <div class=" flex justify-center">
-        <div class="w-7/12 mt-7">
-            <div class="flex justify-end">
-                <input id="search" type="search" class=" w-96 font-light border-gray-300 rounded-md mr-3 px-7 py-2 border mb-2" placeholder="찾으시는 스터디를 검색해보세요!">
-                </input>
-            </div>
-          
-            <form method="GET">
-                <div id="square"  style="height: 200px;  z-index: 99999; " class="flex flex-wrap py-1 shadow-md rounded-md border ">
+<div class=" container  mx-auto bg-gray-800 w-7/12 h-25vh  bg-center bg-cover" style="border-radius:15px; background-image:url(https://blog.kakaocdn.net/dn/bgwWMX/btqFvfdvgBL/OdGT0yAhdQlYcm7mWLcuT1/img.jpg)">
+</div>
+<div class="text-center mt-10">
+<div id="font_a" style="font-family: 'Gothic A1', sans-serif; font-size: 37px;" class="text-black font-bold">
+  스터디
+</div>
 
-                 
-                    {% for name in list %}
+<div id="font_b" style="font-family: 'Gothic A1', sans-serif; font-weight:500; font-size: 20px;" class="font-bold text-gray-400 mt-6">
+    스터디에 가입해보세요!
+</div>
+</div>
+<div class=" flex justify-center">
+    <div class="w-7/12 mt-3">
+        <div class="flex justify-end">
+        
+        </div>
+      
+        <form method="GET">
+            <div id="square"  style=";  z-index: 99999; border: none; " class="flex flex-wrap rounded-md   ">
+
+              
+               
+              
+                <!-- <div class="w-30  ml-4 mt-10">
+
+                    <label class="font-normal text-sm" for="language">
+                        {{name.name}}
+                    </label>
+                    <button 
+                    id="language"
+                    name='language'
                     
-                    <div class="w-30  ml-4 mt-10">
-
-                        <label class="font-normal text-sm" for="language">
-                            {{name.name}}
-                        </label>
-                        <input 
-                        id="language"
-                        name='language'
-                        type="checkbox"
-                        value={{name.name}}
-                        {% if name.name in s_languages %}
-                            checked
-                        {% endif %}
-                    />
-                    </div>
-                    {% endfor %}
+                    value={{name.name}}
+                    {% if name.name in s_languages %}
+                        checked
+                    {% endif %}
+                />
+                </div> -->
+      
+            
+                <br>
                 
-                    <br>
-                    
-                    
+                
 
-                   
-                   
+               
+               
 
-                   
- <div id="section" class="w-full items-end justify-end  ml-32 flex ">
-     <div id="butt" class="card bg-white py-3 px-5 rounded-xl flex flex-col " style="">
-         <div class="title text-xl font-medium"></div>
+               
+<div id="section" class=" items-end justify-end  mt-2   flex " ></div>
+ <div id="butt" class="card bg-white   rounded-xl flex  items-end justify-end ml-2 mt-2 " style="width: 8/12;">
+  
+    <style>
+        .arrow {
+            display: block;
+        }
+        #navbar__menu_a{
+           display: none;
+         
+        }
+    </style>
+         
+                           
+    
+     <div id="genre_a" class="flex flex-row space-x-3    " style="  ">
+
+        <div id="web"  class="p-2 ">
+            <button style="border: none;"  name="language_categori" value="웹" class="flex items-center p-5 bg-red-200 rounded-lg shadow-xs cursor-pointer hover:bg-red-500 hover:text-gray-100">
+                
+                <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>CSS3 icon</title><path d="M1.5 0h21l-1.91 21.563L11.977 24l-8.565-2.438L1.5 0zm17.09 4.413L5.41 4.41l.213 2.622 10.125.002-.255 2.716h-6.64l.24 2.573h6.182l-.366 3.523-2.91.804-2.956-.81-.188-2.11h-2.61l.29 3.855L12 19.288l5.373-1.53L18.59 4.414z"/></svg>
+                <div>
+                  <p class="text-xs font-medium ml-2 ">
+                    웹
+                  </p>
+                  
+                </div>
+            </button>
+            </div>
+        
+        
+       
+        <div id="app"   class="p-2 ">
+              <button style="border: none;"   name="language_categori" value="앱" class="flex items-center p-5 bg-green-200 rounded-lg shadow-xs cursor-pointer hover:bg-green-500 hover:text-gray-100">
+                
+                <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+                <div>
+                  <p class=" text-xs font-medium ml-2 ">
+                    앱
+                  </p>
+                </div>
+                </button>
+            </div>
+        
+       
+            <div id="web" class="p-2  ">
+                <button  style="border: none;"    name="language_categori" value="AI" href="#" class="flex items-center p-5 bg-blue-200 rounded-lg shadow-xs cursor-pointer hover:bg-blue-500 hover:text-gray-100">
+                    
+                  <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Laravel icon</title><path d="M23.644 5.43c.009.032.014.065.014.099v5.15c0 .135-.073.26-.189.326l-4.323 2.49v4.934c0 .135-.072.258-.188.326L9.931 23.95c-.021.012-.043.02-.066.027-.008.002-.016.008-.024.01-.063.018-.13.018-.192 0-.011-.002-.02-.008-.029-.012-.021-.008-.043-.014-.063-.025L.534 18.755c-.117-.068-.189-.191-.189-.326V2.974c0-.033.005-.066.014-.098.003-.012.01-.021.014-.032.006-.02.014-.04.023-.058.004-.013.015-.022.023-.033.012-.016.021-.031.033-.045.012-.01.025-.018.037-.027.014-.012.027-.024.041-.034h.001L5.044.05c.115-.067.259-.067.375 0l4.512 2.597h.002c.015.01.027.021.041.033.012.009.025.018.037.027.013.014.021.029.033.045.008.011.02.021.025.033.011.019.017.038.024.058.003.011.011.021.013.032.01.031.014.064.014.098v9.652l3.76-2.164V5.527c0-.033.005-.066.014-.098.003-.011.009-.021.013-.032.007-.02.014-.039.024-.059.007-.012.018-.021.025-.033.012-.015.021-.03.033-.043.012-.012.025-.02.037-.028.014-.011.026-.023.041-.032h.001l4.513-2.598c.116-.067.259-.067.375 0l4.513 2.598c.016.01.027.021.042.031.012.01.025.018.036.028.013.014.022.029.034.044.008.012.019.021.024.033.011.02.018.039.024.059.006.011.012.022.015.033zm-.74 5.032V6.179l-1.578.908-2.182 1.256v4.283l3.76-2.164zm-4.511 7.75v-4.287l-2.146 1.225-6.127 3.498v4.326l8.273-4.762zM1.095 3.624v14.588l8.273 4.762v-4.326l-4.322-2.445-.002-.003h-.002c-.014-.01-.025-.021-.04-.031-.011-.01-.024-.018-.035-.027l-.001-.002c-.013-.012-.021-.025-.031-.039-.01-.012-.021-.023-.028-.037h-.002c-.008-.014-.013-.031-.02-.047-.006-.016-.014-.027-.018-.043-.004-.018-.006-.037-.008-.057-.002-.014-.006-.027-.006-.041V5.789l-2.18-1.257-1.578-.908zM5.231.81l-3.76 2.164 3.76 2.164 3.758-2.164L5.231.81zm1.956 13.505l2.182-1.256V3.624l-1.58.909-2.182 1.256v9.435l1.58-.909zM18.769 3.364l-3.76 2.164 3.76 2.163 3.759-2.164-3.759-2.163zm-.376 4.979l-2.182-1.256-1.579-.908v4.283l2.182 1.256 1.579.908V8.343zm-8.65 9.654l5.514-3.148 2.756-1.572-3.757-2.163-4.324 2.489-3.941 2.27 3.752 2.124z"/></svg>
+                    <div>
+                      <p class=" text-xs font-medium ml-2 ">
+                        AI
+                      </p>
+                      
+                    </div>
+                </button>
+            </div>
+    
+      
+        <div id="ai"  class="p-2 md:w-56 ">
+            <button style="border: none;"    name="language_categori" value="게임" class=" flex items-center p-6 bg-yellow-200 rounded-lg shadow-xs cursor-pointer hover:bg-yellow-500 hover:text-gray-100">
+                
+                <i class="fas fa-gamepad fa-lg"></i>
+                <div>
+                  <p class=" text-xs font-medium text-uppercase ml-2 ">
+                    게임
+                  </p>
+                  </div>
+                </button>
+            </div>
+     
+        <div id="major" class="p-2  ">
+            <button style="border: none;" x name="language_categori" value="전공" class=" flex items-center p-6 bg-indigo-200 rounded-lg shadow-xs cursor-pointer hover:bg-indigo-500 hover:text-gray-100">
+                
+                <i class="fas fa-book fa-lg"></i>
+                <div>
+                  <p class=" text-xs font-medium ml-2 ">
+                    전공
+                  </p>
+                  
+                </div>
+            </button>
+            
+        </div>   
+        <a class="arrow" href="javascript:void(0);"  onclick="myFunction()">
+            <i  class="fas fa-chevron-right mt-4 fa-3x"></i>
+        </a>
+           
+        </div>
+       
+    </form>
+    
+        </div>
+        <form method="GET">
+        <div id="navbar__menu_a"  class=" ml-2 flex flex-wrap" > 
+        <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="c언어" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                  c언어
+                </p>
+              </div>
+              </button>
+          </div>
+
+          <div id="app"   class="p-2 " >
+            <button style="border: none;"   name="language_categori" value="php" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                  php
+                </p>
+              </div>
+              </button>
+          </div>
+          <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="python" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                    python
+                </p>
+              </div>
+              </button>
+          </div>
+          <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="java" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                    java
+                </p>
+              </div>
+              </button>
+          </div>
+
+          <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="javascript" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                    javascript
+                </p>
+              </div>
+              </button>
+          </div>
+          <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="react" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                    react
+                </p>
+              </div>
+              </button>
+          </div>
+          <div id="app"   class="p-2 ">
+            <button style="border: none;"   name="language_categori" value="node.js" class="flex items-center p-5 bg-gray-200 rounded-lg shadow-xs cursor-pointer hover:bg-gray-500 hover:text-gray-100">
+              
+              <svg class="h-6 fill-current hover:text-gray-100" role="img" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><title>Vue.js icon</title><path d="M19.197 1.608l.003-.006h-4.425L12 6.4v.002l-2.772-4.8H4.803v.005H0l12 20.786L24 1.608"/></svg>
+              <div>
+                <p class=" text-xs font-medium ml-2 ">
+                    node.js
+                </p>
+              </div>
+              </button>
+          </div>
+        </div> 
+        </form>
+
+
+
+        <script>
+            function myFunction() {
+            var x = document.getElementById("navbar__menu_a");
+            if (x.style.display === "flex") {
+                x.style.display = "none";
+            } else {
+                x.style.display = "flex";
+            }
+            // const toggleBtn = document.querySelector('.arrow');
+            // const menu = document.querySelector(".navbar__menu_a");
+            
+          
+            // toggleBtn.addEventListener('click', () => {
+            //   menu.classList.toggle('active');
+            
+              
+            // })
+            }
+          </script>
+        </div> 
+         
       
              
-             <div id="genre" class="space-x-2  flex flex-row  w-full    " style="margin-left: 300px; ">                    
-                 <div id="genre_a" class="space-x-2  flex flex-row    " style=" width: 300px;    ">
-                 <button id="web"   name="language_categori" value="웹" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
-                     웹
-                 </button>
-                 <button id="app" name="language_categori" value="앱" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
-                     앱
-                 </button>
-                 <button id="ai" name="language_categori" value="AI" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
-                     AI
-                 </button>
-                 <button id="game" name="language_categori" value="게임" class=" text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
-                     게임
-                 </button>
-     
-             </div>
-             <div id="genre_b" class=" flex      " style=" width: 900px;    ">
-                 <button id="filter" class="  text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8 ">
-                     필터링
-                 </button>
-         
-             
-                 <button id="filter_a" class= "text-gray-700 hover:bg-blue-100 font-bold border-gray-700 rounded-lg mt-1 border  h-8   ">
-                     초기화
-                 </button>
-   
-                  </div>
-            </div>
-                    
-                
-             
-            </div>
-        </form>
-                            
-                    
-                        
-                
-                        </div>
-                    </div>
-                </form>
+    </form>
+ 
             
 
+        
+            
 
             <div class="flex justify-center">
                 <div  class="mt-8 w-full justify-center text-center">
                     <form method="GET">
                     <div style="justify-content:space-between;" class="flex">
-                        <button style="width:33%;" class="shadow hover:bg-pink-50 h-32 border">
+                        <button style="width:33%;" class="shadow hover:bg-gray-500 hover:text-white h-32 border">
                             <div>
                                 전체 보기
                             </div>
@@ -358,7 +534,7 @@
                                 {{all_study.count}}
                             </div>
                         </button>
-                        <button style="width:33%;" name="subject" value="continue" class="shadow hover:bg-pink-50 h-32 border">
+                        <button style="width:33%;" name="subject" value="continue" class="shadow hover:bg-gray-500 hover:text-white h-32 border">
                             <div>
                                 모집 진행중
                             </div>
@@ -366,7 +542,7 @@
                                 {{Deadline_True}}
                             </div>
                         </button>
-                        <button style="width:33%;" name="subject" value="dead" class="shadow hover:bg-pink-50 h-32 border">
+                        <button style="width:33%;" name="subject" value="dead" class="shadow hover:bg-gray-500 hover:text-white h-32 border">
                             <div>
                                 모집 마감
                             </div>

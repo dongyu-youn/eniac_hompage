@@ -10,7 +10,6 @@ from django.urls import reverse, reverse_lazy
 # Create your views here.
 
 def studiesview(request):
-
     check_list = request.GET.get("subject")
     study = models.Study.objects.all()
     language_list = models.LanguageType.objects.all()
@@ -27,6 +26,7 @@ def studiesview(request):
         # print(study[2].programing_language.__dict__)
     # if request.GET.getlist("reset") == 'True':
     #     study = models.Study.objects.all()
+    # print(language_categori)
     if(check_list == "continue"):
         study = study.filter(Deadline=True)
     elif(check_list == "dead"):
@@ -40,6 +40,21 @@ def studiesview(request):
             study = study.filter(study_genre="Machine_Learning")
         elif(language_categori=="게임"):
             study = study.filter(study_genre="Game")
+        elif(language_categori=="c언어"):
+            study = study.filter(Programing_Language__id=4)
+        elif(language_categori=="php"):
+            study = study.filter(Programing_Language__id=10)
+        elif(language_categori=="python"):
+            study = study.filter(Programing_Language__id=5)
+        elif(language_categori=="java"):
+            study = study.filter(Programing_Language__id=6)
+        elif(language_categori=="javascript"):
+            study = study.filter(Programing_Language__id=9)
+        elif(language_categori=="react"):
+            study = study.filter(Programing_Language__id=18)
+        elif(language_categori=="node.js"):
+            study = study.filter(Programing_Language__id=16)
+        print(1)
     return render(request,"studies/list.html", 
         {"list":language_list,
         "studies": study,
@@ -51,29 +66,24 @@ def studiesview(request):
         })
 
 def studydetail(request, pk):
-    
     study = models.Study.objects.get(pk=pk)
     host_inf = User.objects.get(username=study.Room_Host)
     room_members = study.Room_Member.all()
-    print(request.POST.get('Recruitment_off'))
+
     if(request.POST.get('Recruitment_off')=="off"):
         study.Deadline = False
         study.save()
-        print(1)
-        print(study.Deadline)
+
     if(request.POST.get('Recruitment_on')=="on"):
         study.Deadline = True
         study.save()
-        print(2)
-    print(room_members)
-
-    return render(request, "studies/study_detail.html",
-                {
-            'study': study,
-            'host_inf': host_inf,
-            'room_members': room_members,
-        }
-    )
+        
+    context = {
+        'study': study,
+        'host_inf': host_inf,
+        'room_members': room_members,
+    }
+    return render(request, "studies/study_detail.html", context)
 
 class StudyUpdateView(UpdateView):
     
